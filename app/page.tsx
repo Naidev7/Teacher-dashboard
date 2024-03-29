@@ -1,12 +1,11 @@
+import Menu from "@/components/Menu/Menu";
+import Main from "@/components/Main/Main";
 
- import Menu from "@/components/Menu";
-
- export default function Home() {
+export default function Home() {
   return (
-   <main>
-    <section>
-      <Menu/>
-    </section>
-   </main>
+    <main className="flex w-full h-full p-9 ">
+      <Menu />
+      <Main />
+    </main>
   );
 }
