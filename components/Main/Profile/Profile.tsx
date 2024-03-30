@@ -7,7 +7,7 @@ function Profile() {
       <p className="font-normal leading-5 text-sm text-gray-500">
         Crea y gestiona los profesores
       </p>
-      <article className="flex gap-x-12 p-6 border-t-2 border-b-2 border-solid border-gray-100">
+      <article className="flex gap-x-12 p-6 border-t-2 border-b-2 border-solid border-gray-200">
         <div className="bg-gradient-to-b from-purple-200 to-indigo-300 p-2 rounded-lg w-[96px] h-[96px] text-center">
           <p className="text-indigo-700 font-medium text-4xl mt-5">MM</p>
         </div>

@@ -10,7 +10,7 @@ import SettingsIcon from "./icons/SettingsIcon";
 
 function Sections() {
   return (
-    <section className="flex flex-col gap-y-6 items-start ml-12 p-4 cursor-pointer">
+    <section className="flex flex-col gap-y-6 items-start ml-4 p-4 cursor-pointer">
       <article className="flex gap-x-5">
         <div>
           <IconStart />
