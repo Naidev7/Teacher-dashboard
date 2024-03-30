@@ -16,11 +16,11 @@ function Hours() {
             <h4 className="font-bold text-lg leading-12 text-gray-900">18 Horas</h4>
         </div>
         <div  className="bg-white p-6 rounded-xl">
-            <p className="font-medium text-sm leading-4 text-gray-700">Horas Totales</p>
+            <p className="font-medium text-sm leading-4 text-gray-700">Horas Lectivas</p>
             <h4 className="font-bold text-lg leading-12  text-gray-900">18 Horas</h4>
         </div>
         <div  className="bg-white p-6 rounded-xl">
-            <p className="font-medium text-sm leading-4 text-gray-700">Horas Totales</p>
+            <p className="font-medium text-sm leading-4 text-gray-700">Horas Complementarias</p>
             <h4 className="font-bold text-lg leading-12  text-gray-900">18 Horas</h4>
         </div>
     </article>
