@@ -1,21 +1,43 @@
 "use client";
+import { useRouter } from "next/navigation";
 
 function Schedule() {
+const router = useRouter();
+
+
+
+const handleNav = (evt:React.MouseEvent<HTMLButtonElement> )=>{
+  evt.preventDefault();
+  const evtId = evt.target.id;
+  console.log('evtId ', evtId)
+
+  if(evtId === 'add') return router.push("/pages/add");
+  if(evtId === 'detail') return router.push("/pages/detail/${id}");
+  if(evtId === 'edit') return router.push("/pages/edit/${id}");
+  if(evtId === 'delate') return router.push("/pages/delate/${id}");
+
+
+
+}
   return (
     <section className="mt-12 relative ">
       <article className="flex gap-x-9">
-        <small className="border-b-2 rounded-sm border-indigo-700">
+
+        <button className="border-b-2 rounded-sm border-indigo-700">
           <p className="text-indigo-700 text-sm font-semibold leading-6 mb-2 ">
             Horas lectivas
           </p>
-        </small>
-        <p className="font-semibold text-sm leading-6 text-gray-700">
+        </button>
+
+        <button className="font-semibold text-sm leading-6 text-gray-700">
           Horas complementarias
-        </p>
+        </button>
       </article>
-      <button className="mt-8 bg-indigo-600 p-2 rounded-lg text-white font-medium text-sm leading-5 ml-[80%] cursor-pointer">
+
+      <button id="add" onClick={handleNav} className="mt-8 bg-indigo-600 p-2 rounded-lg text-white font-medium text-sm leading-5 ml-[80%] cursor-pointer">
         + Añadir Assgnatura
       </button>
+
       <table className="mt-8  border-gray-300 m-auto shadow-lg rounded-2xl">
         <tr className="bg-gray-100  border-b-2">
           <th className="p-4 text-sm leading-5 font-normal text-gray-400 rounded-l-2xl">
@@ -50,9 +72,9 @@ function Schedule() {
             1º Bach- Grupo B
           </td>
           <td className="flex p-3 gap-x-4">
-            <button className="text-indigo-700 text-sm leading-5 font-medium">Ver</button>
-            <button className="text-indigo-700 text-sm leading-5 font-medium">Editar</button>
-            <button className="text-red-600 leading-5 text-sm font-medium">Eliminar</button>
+            <button id="detail" onClick={handleNav} className="text-indigo-700 text-sm leading-5 font-medium">Ver</button>
+            <button id="edit" onClick={handleNav} className="text-indigo-700 text-sm leading-5 font-medium">Editar</button>
+            <button id="delate" onClick={handleNav} className="text-red-600 leading-5 text-sm font-medium">Eliminar</button>
           </td>
         </tr>
       </table>
