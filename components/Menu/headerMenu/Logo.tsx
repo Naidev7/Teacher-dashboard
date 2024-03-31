@@ -18,7 +18,7 @@ function Logo() {
       rx="5.9"
       fill="url(#pattern0)"
       stroke="black"
-      stroke-width="0.2"
+      strokeWidth="0.2"
     />
     <defs>
       <pattern

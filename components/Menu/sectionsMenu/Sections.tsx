@@ -5,7 +5,7 @@ import TeachersIcon from "./icons/TeachersIcon";
 import FamiliesIcon from "./icons/FamiliesIcon";
 import SpacesIcon from "./icons/SpacesIcon";
 import SubjectsIcon from "./icons/SubjectsIcon";
-import BellIcon from "./icons/bellIcon";
+import BellIcon from "./icons/BellIcon";
 import SettingsIcon from "./icons/SettingsIcon";
 
 function Sections() {
