@@ -3,40 +3,48 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-
 function Add() {
-  const [subject, setSubject] = useState();
-  const [ added, setAdded ] = useState();
+  const [newSubj, setNewSubj] = useState({
+    name: "",
+    type: "",
+    course: "",
+    group: "",
+    hours: "",
+    spaces: ""
+  });
+  const [error, setError] = useState('')
+
   const router = useRouter();
 
   const saveValues = (key: string, value: String | Number) => {
-    setSubject({...subject, [key]: value});
+    setNewSubj({ ...newSubj, [key]: value });
   };
 
-  const handleSend = async (evt:React.MouseEvent<HTMLButtonElement>)=>{
+  const handleSend = async (evt: React.MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
 
-    try {
-      const res = await fetch('http://localhost:3000/api/addSubject',{
-        method: 'POST',
-        headers: {
-          "Content-type": "application/json"
-        },
-        body: JSON.stringify({
-          subject
-        })
-      });
-
-      if(res.ok){
-        console.log('Añadido con exito')
-        router.push("/");
-
+    if(newSubj.name != "" && newSubj.type != "" && newSubj.course != "" && newSubj.group != "" && newSubj.hours != "" && newSubj.spaces != ""){
+      try {
+        const res = await fetch("http://localhost:3000/api/subjects", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            newSubj,
+          }),
+        });
+  
+        if (res.ok) {
+          router.push("/");
+        }
+      } catch (error) {
+        console.log("Error during the fetch: ", error);
       }
-
-    } catch (error) {
-      console.log('Error during the fetch: ', error)
+    }else{
+      setError('Todos los campos son necesarios.')
     }
-  }
+  };
 
   return (
     <section className="flex flex-col justify-center p-12">
@@ -54,12 +62,16 @@ function Add() {
           Seleciona la asignatura
         </label>
         <select
-          onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onClick={(evt) => saveValues(evt.target.id, evt.target.value)}
           name="name"
           id="name"
+          value={newSubj.name}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4 text-gray-600 cursor-pointer"
         >
-          <option>Matemáticas</option>
+          <option value="selecione" disabled>
+            Selecione
+          </option>
+          <option value="Matemáticas">Matemáticas</option>
           <option value="Ciéncias">Ciéncias</option>
           <option value="Biología">Biología</option>
           <option value="História">História</option>
@@ -72,11 +84,13 @@ function Add() {
           Tipo de asignatura
         </label>
         <select
-        onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onClick={(evt) => saveValues(evt.target.id, evt.target.value)}
           name="type"
           id="type"
+          value={newSubj.type}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
+          <option disabled>Selecione</option>
           <option value="Obligatoria">Obligatoria</option>
           <option value="Optativa">Optativa</option>
         </select>
@@ -85,11 +99,15 @@ function Add() {
           Curso
         </label>
         <select
-        onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onClick={(evt) => saveValues(evt.target.id, evt.target.value)}
           name="course"
-          id="curse"
+          id="course"
+          value={newSubj.course}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
+          <option value="selecione" disabled>
+            Selecione
+          </option>
           <option value="1º">1º de Bachillerato</option>
           <option value="2ndº">2ndº de Bachillerato</option>
           <option value="3rtº">3rtº de Bachillerato</option>
@@ -100,11 +118,15 @@ function Add() {
           Grupo
         </label>
         <select
-        onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onClick={(evt) => saveValues(evt.target.id, evt.target.value)}
           name="group"
           id="group"
+          value={newSubj.group}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
+          <option value="selecione" disabled>
+            Selecione
+          </option>
           <option value="A">A</option>
           <option value="B">B</option>
           <option value="C">C</option>
@@ -114,11 +136,15 @@ function Add() {
           Horas
         </label>
         <select
-        onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onClick={(evt) => saveValues(evt.target.id, evt.target.value)}
           name="hours"
           id="hours"
+          value={newSubj.hours}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
+          <option value="selecione" disabled>
+            Selecione
+          </option>
           <option value="1">1</option>
           <option value="1.5">1.5</option>
           <option value="2">2</option>
@@ -131,23 +157,27 @@ function Add() {
           Espacio
         </label>
         <select
-        onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onClick={(evt) => saveValues(evt.target.id, evt.target.value)}
           name="spaces"
           id="spaces"
+          value={newSubj.spaces}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
+          <option value="selecione" disabled>
+            Selecione
+          </option>
           <option value="1º Bach-Grupo A">1º Bach-Grupo A</option>
           <option value="1º Bach-Grupo B">1º Bach-Grupo B</option>
           <option value="1º Bach-Grupo C">1º Bach-Grupo C</option>
         </select>
-
-        <button onClick={handleSend} className="bg-indigo-700 text-white p-4 ml-[60%] rounded-lg w-[40%] font-medium text-sm leading-5 cursor-pointer">
+        { error }
+        <button
+          onClick={handleSend}
+          className="bg-indigo-700 text-white p-4 ml-[60%] rounded-lg w-[40%] font-medium text-sm leading-5 cursor-pointer"
+        >
           Añadir asignaturas
         </button>
       </form>
-      {
-        added && <h3>{added}</h3>
-      }
     </section>
   );
 }

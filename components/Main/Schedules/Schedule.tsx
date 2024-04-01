@@ -1,9 +1,11 @@
+
 "use client";
 import { useRouter } from "next/navigation";
-import {Table} from "../Table/Table";
 
 function Schedule() {
 const router = useRouter();
+
+
 
 const handleNav = (evt:React.MouseEvent<HTMLButtonElement> )=>{
   evt.preventDefault();
@@ -11,10 +13,13 @@ const handleNav = (evt:React.MouseEvent<HTMLButtonElement> )=>{
   console.log('evtId ', evtId)
 
   if(evtId === 'add') return router.push("/pages/add");
+  if(evtId === 'detail') return router.push("/pages/detail/${id}");
+  if(evtId === 'edit') return router.push("/pages/edit/${id}");
+  if(evtId === 'delate') return router.push("/pages/delate/${id}");
+
+
 
 }
-
-
   return (
     <section className="mt-12 relative ">
       <article className="flex gap-x-9">
@@ -34,7 +39,6 @@ const handleNav = (evt:React.MouseEvent<HTMLButtonElement> )=>{
         + Añadir Assgnatura
       </button>
 
-      <Table/>
     </section>
   );
 }

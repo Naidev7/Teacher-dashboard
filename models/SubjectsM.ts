@@ -8,4 +8,4 @@ const SubjectSchema = new mongoose.Schema({
     hours: Number,
     spaces: String,
 })
-export default mongoose.models.SubjectSchema || mongoose.model('Subject', SubjectSchema)
+export default mongoose.models.Subject || mongoose.model('Subject', SubjectSchema)

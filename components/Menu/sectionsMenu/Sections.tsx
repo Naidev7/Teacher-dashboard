@@ -12,7 +12,7 @@ function Sections() {
   return (
     <section className="flex flex-col gap-y-6 items-start ml-4 p-4 cursor-pointer">
       <article className="flex gap-x-5">
-        <div>
+        <div className="w-5">
           <IconStart />
         </div>
         <Link href="/" className="menuLinks">
@@ -20,7 +20,7 @@ function Sections() {
         </Link>
       </article>
       <article  className="flex gap-x-5">
-        <div>
+        <div className="w-5">
           <SchedulesIcon/>
         </div>
         <Link href="/schedule" className="menuLinks">
@@ -28,7 +28,7 @@ function Sections() {
         </Link>
       </article>
       <article  className="flex gap-x-5">
-        <div>
+        <div className="w-5">
           <TeachersIcon/>
         </div>
         <Link href="/teachers" className="menuLinks">
@@ -36,7 +36,7 @@ function Sections() {
         </Link>
       </article>
       <article  className="flex gap-x-5">
-        <div>
+        <div className="w-5">
           <FamiliesIcon/>
         </div>
         <Link href="families" className="menuLinks">
@@ -44,7 +44,7 @@ function Sections() {
         </Link>
       </article>
       <article  className="flex gap-x-5">
-        <div>
+        <div className="w-5">
           <SpacesIcon/>
         </div>
         <Link href="spaces" className="menuLinks">
@@ -52,7 +52,7 @@ function Sections() {
         </Link>
       </article>
       <article  className="flex gap-x-5">
-        <div>
+        <div className="w-5" >
           <SubjectsIcon/>
         </div>
         <Link href="/subjects" className="menuLinks">
@@ -60,7 +60,7 @@ function Sections() {
         </Link>
       </article>
       <article  className="flex gap-x-5">
-        <div>
+        <div className="w-5">
         <BellIcon/>
         </div>
         <Link href="/notifications" className="menuLinks">
@@ -68,9 +68,9 @@ function Sections() {
         </Link>
       </article>
       <article  className="flex gap-x-5">
-        <nav>
+        <div className="w-5" >
           <SettingsIcon/>
-        </nav>
+        </div>
         <Link href="/settings" className="menuLinks">
           Settings
         </Link>
