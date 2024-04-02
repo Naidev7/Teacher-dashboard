@@ -24,7 +24,6 @@ Para clonar y ejecutar este proyecto en tu máquina local, sigue estos pasos:
 1. Clona el repositorio desde GitHub:
 
 
-
 git clone https://github.com/tu_usuario/dashboard-profesores.git
 
 2. Navega hasta el directorio del proyecto:
@@ -40,3 +39,5 @@ npm install
 npm run dev
 
 5. Abre tu navegador y accede a http://localhost:3000 para ver la aplicación en funcionamiento.
+
+¡Disfruta utilizando el dashboard de profesores! Si tienes alguna pregunta o necesitas ayuda adicional, no dudes en ponerte en contacto con nosotros. ¡Gracias por tu interés en nuestro proyecto!
