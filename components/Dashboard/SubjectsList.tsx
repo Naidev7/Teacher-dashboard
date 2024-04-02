@@ -16,7 +16,7 @@ const getSubjects = async () => {
   }
 };
 
-export default async function TopicsList() {
+export default async function SubjectsList() {
   const { data } = await getSubjects();
 
   return (
@@ -45,7 +45,7 @@ export default async function TopicsList() {
             Acciones
           </th>
         </tr>
-        {data.map((s, i) => (
+        {data.map((s: any, i: number) => (
           <tr key={i} className="text-center">
             <td className="p-3 text-sm leading-5 font-medium">{s.name}</td>
             <td className="p-3 text-sm leading-5 font-medium">{s.type}</td>
@@ -53,31 +53,29 @@ export default async function TopicsList() {
               {s.course}
             </td>
             <td className="p-3 text-sm leading-5 font-medium">{s.group}</td>
-            <td className="p-3 text-sm leading-5 font-medium">{s.hours}</td>
+            <td className="p-3 text-sm leading-5 font-medium">{`${s.hours} h`}</td>
             <td className="p-3 text-sm leading-5 font-medium">
               {s.spaces}
             </td>
             <td className="flex p-3 gap-x-4">
-              <Link href={`/pages/detail/${s._id}`}
+              <Link href={`/pages/${s._id}`}
                 id="detail"
                 className="text-indigo-700 text-sm leading-5 font-medium"
               >
                 Ver
               </Link>
-
-
-              <Link href={`/pages/edit/${s._id}`}
+              <button
                 id="edit"
                 className="text-indigo-700 text-sm leading-5 font-medium"
               >
                 Editar
-              </Link>
-              <Link href={`/pages/delate/${s._id}`}
+              </button>
+              <button 
                 id="delate"
                 className="text-red-600 leading-5 text-sm font-medium"
               >
                 Eliminar
-              </Link>
+              </button>
             </td>
           </tr>
         ))}

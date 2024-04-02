@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react";
+import Image from "next/image";
 
 function IconStart() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16" fill="none">
-<rect width="16" height="16" fill="url(#pattern0)"/>
-</svg>
-  )
+    <Image src="/Logo-2.png" alt="Logo2" width={20} height={20} className="rounded-lg"/>
+  );
 }
 
-export default IconStart
+export default IconStart;

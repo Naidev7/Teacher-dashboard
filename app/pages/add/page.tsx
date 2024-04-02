@@ -1,4 +1,4 @@
-import Add from "@/components/Main/Add/Add"
+import Add from "@/components/Dashboard/Add"
 
 function page() {
 

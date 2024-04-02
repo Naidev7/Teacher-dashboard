@@ -52,7 +52,7 @@ function Add() {
         <h1 className="font-medium text-base leading-6 text-gray-900 ">
           Añadir asignatura
         </h1>
-        <Link href="/" className="text-gray-600 cursor-pointer">
+        <Link href="/" className="text-gray-600 cursor-pointer hover:text-indigo-900">
           X
         </Link>
       </div>
@@ -62,7 +62,7 @@ function Add() {
           Seleciona la asignatura
         </label>
         <select
-          onClick={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
           name="name"
           id="name"
           value={newSubj.name}
@@ -84,7 +84,7 @@ function Add() {
           Tipo de asignatura
         </label>
         <select
-          onClick={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
           name="type"
           id="type"
           value={newSubj.type}
@@ -99,7 +99,7 @@ function Add() {
           Curso
         </label>
         <select
-          onClick={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
           name="course"
           id="course"
           value={newSubj.course}
@@ -118,7 +118,7 @@ function Add() {
           Grupo
         </label>
         <select
-          onClick={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
           name="group"
           id="group"
           value={newSubj.group}
@@ -136,7 +136,7 @@ function Add() {
           Horas
         </label>
         <select
-          onClick={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
           name="hours"
           id="hours"
           value={newSubj.hours}
@@ -157,7 +157,7 @@ function Add() {
           Espacio
         </label>
         <select
-          onClick={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
           name="spaces"
           id="spaces"
           value={newSubj.spaces}
@@ -170,7 +170,9 @@ function Add() {
           <option value="1º Bach-Grupo B">1º Bach-Grupo B</option>
           <option value="1º Bach-Grupo C">1º Bach-Grupo C</option>
         </select>
+        <p className="text-red-700">
         { error }
+        </p>
         <button
           onClick={handleSend}
           className="bg-indigo-700 text-white p-4 ml-[60%] rounded-lg w-[40%] font-medium text-sm leading-5 cursor-pointer"

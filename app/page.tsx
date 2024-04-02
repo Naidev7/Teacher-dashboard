@@ -1,13 +1,13 @@
 import Menu from "@/components/Menu/Menu";
-import Main from "@/components/Main/Main";
-import SubjectsList from "@/components/Main/SubjectsList"
+import Dashboard from "@/components/Dashboard/Dashboard"
+import SubjectsList from "@/components/Dashboard/SubjectsList"
 
 export default function Home() {
   return (
     <main className="flex ">
       <Menu />
       <section className="ml-9 w-full p-6  bg-gray-50 ">
-      <Main />
+      <Dashboard />
       <SubjectsList/>
       </section>
     </main>

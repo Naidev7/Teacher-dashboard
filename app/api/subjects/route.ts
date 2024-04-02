@@ -30,3 +30,4 @@ export async function GET() {
   const data = await SubjectsM.find();
   return NextResponse.json({ data });
 }
+
