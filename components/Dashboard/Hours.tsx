@@ -1,6 +1,6 @@
 export const getHours = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/subjects", {
+      const res = await fetch("https://https://teacher-dashboard-l367-c9lqzs26h-naidalys-projects.vercel.app/api/subjects", {
         cache: "no-store",
       });
   
