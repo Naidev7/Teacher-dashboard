@@ -6,7 +6,7 @@ type DetailParams = {
 
 const getDetailById = async (id: string): Promise<any>=>{
   try {
-    const res = await fetch(`http://localhost:3000/api/subjects/${id}`,{
+    const res = await fetch(`https://teacher-dashboard-gamma.vercel.app/api/subjects/${id}`,{
       cache:"no-cache",
     });
 
