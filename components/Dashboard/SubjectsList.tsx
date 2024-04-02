@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const getSubjects = async () => {
+export const getSubjects = async () => {
   try {
     const res = await fetch("http://localhost:3000/api/subjects", {
       cache: "no-store",
@@ -21,40 +21,43 @@ export default async function SubjectsList() {
 
   return (
     <>
-      <table className="mt-8  border-gray-300 m-auto shadow-lg rounded-2xl">
-        <tr className="bg-gray-100  border-b-2">
-          <th className="p-4 text-sm leading-5 font-normal text-gray-400 rounded-l-2xl">
+     <table className="mt-8 w-full  border-gray-300 m-auto shadow-lg rounded-2xl">
+      <thead className="bg-gray-100 border-b-2">
+        <tr>
+          <th className="custom-th rounded-l-2xl">
             Nombre
           </th>
-          <th className="p-4 text-sm leading-5 font-normal text-gray-400">
+          <th className="custom-th">
             Tipo
           </th>
-          <th className="p-4 text-sm leading-5 font-normal text-gray-400">
+          <th className="custom-th">
             Curso
           </th>
-          <th className="p-4 text-sm leading-5 font-normal text-gray-400">
+          <th className="custom-th">
             Grupo
           </th>
-          <th className="p-4 text-sm leading-5 font-normal text-gray-400">
+          <th className="custom-th">
             Horas Semana
           </th>
-          <th className="p-4 text-sm leading-5 font-normal text-gray-400">
+          <th className="custom-th">
             Espacio Regular
           </th>
-          <th className="p-4 text-sm leading-5 font-normal text-gray-400 rounded-r-2xl">
+          <th className="custom-th rounded-r-2xl">
             Acciones
           </th>
         </tr>
+        </thead>
+        <tbody>
         {data.map((s: any, i: number) => (
-          <tr key={i} className="text-center">
-            <td className="p-3 text-sm leading-5 font-medium">{s.name}</td>
-            <td className="p-3 text-sm leading-5 font-medium">{s.type}</td>
-            <td className="p-3 text-sm leading-5 font-medium">
+          <tr key={i} className="text-start pl-6">
+            <td className="custom-td">{s.name}</td>
+            <td className="custom-td">{s.type}</td>
+            <td className="custom-td">
               {s.course}
             </td>
-            <td className="p-3 text-sm leading-5 font-medium">{s.group}</td>
-            <td className="p-3 text-sm leading-5 font-medium">{`${s.hours} h`}</td>
-            <td className="p-3 text-sm leading-5 font-medium">
+            <td className="custom-td">{s.group}</td>
+            <td className="custom-td">{`${s.hours} h`}</td>
+            <td className="custom-td">
               {s.spaces}
             </td>
             <td className="flex p-3 gap-x-4">
@@ -79,7 +82,9 @@ export default async function SubjectsList() {
             </td>
           </tr>
         ))}
-      </table>
+        </tbody>
+      </table> 
+
     </>
   );
 }

@@ -13,7 +13,7 @@ const getDetailById = async (id)=>{
 
     return res.json();
   } catch (error) {
-    console.log('Error en getDetailById: ', error)
+    throw new Error("Failed to fetch detail")
   }
 }
 

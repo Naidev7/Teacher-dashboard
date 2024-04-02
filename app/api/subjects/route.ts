@@ -3,9 +3,8 @@ import SubjectsM from "@/models/SubjectsM";
 import { NextResponse, NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const res = await req.json() // res now contains body
+  const res = await req.json() 
 
-  console.log("body: ", res.newSubj)
   const { name, type, course, group, hours, spaces } = res.newSubj;
   try {
     await connectDB();

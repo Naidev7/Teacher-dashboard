@@ -72,9 +72,9 @@ function Add() {
             Selecione
           </option>
           <option value="Matemáticas">Matemáticas</option>
-          <option value="Ciéncias">Ciéncias</option>
+          <option value="Ciencias">Ciencias</option>
           <option value="Biología">Biología</option>
-          <option value="História">História</option>
+          <option value="Historia">Historia</option>
           <option value="Química">Química</option>
           <option value="Sociales">Sociales</option>
           <option value="Inglés">Inglés</option>
@@ -109,9 +109,9 @@ function Add() {
             Selecione
           </option>
           <option value="1º">1º de Bachillerato</option>
-          <option value="2ndº">2ndº de Bachillerato</option>
-          <option value="3rtº">3rtº de Bachillerato</option>
-          <option value="4rtº">4rtº de Bachillerato</option>
+          <option value="2ndº">2º de Bachillerato</option>
+          <option value="3rtº">3º de Bachillerato</option>
+          <option value="4rtº">4º rt de Bachillerato</option>
         </select>
 
         <label htmlFor="group" className="text-sm text-gray-900">
@@ -169,6 +169,15 @@ function Add() {
           <option value="1º Bach-Grupo A">1º Bach-Grupo A</option>
           <option value="1º Bach-Grupo B">1º Bach-Grupo B</option>
           <option value="1º Bach-Grupo C">1º Bach-Grupo C</option>
+          <option value="1º Bach-Grupo A">2º Bach-Grupo A</option>
+          <option value="1º Bach-Grupo B">2º Bach-Grupo B</option>
+          <option value="1º Bach-Grupo C">2º Bach-Grupo C</option>
+          <option value="1º Bach-Grupo A">3º Bach-Grupo A</option>
+          <option value="1º Bach-Grupo B">3º Bach-Grupo B</option>
+          <option value="1º Bach-Grupo C">3º Bach-Grupo C</option>
+          <option value="1º Bach-Grupo A">4º Bach-Grupo A</option>
+          <option value="1º Bach-Grupo B">4º Bach-Grupo B</option>
+          <option value="1º Bach-Grupo C">º Bach-Grupo C</option>
         </select>
         <p className="text-red-700">
         { error }

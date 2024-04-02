@@ -4,7 +4,7 @@ import SectionsMenu from "./sectionsMenu/Sections";
 
 function Menu() {
   return (
-    <article className="flex flex-col gap-y-4 w-[20%]">
+    <article className="flex flex-col gap-y-10 bg-white">
     <HeaderMenu/>      
     <SectionsMenu/>
     </article>

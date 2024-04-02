@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link";
 import IconStart from "./icons/IconStart";
 import SchedulesIcon from "./icons/SchedulesIcon";
@@ -7,74 +8,33 @@ import SpacesIcon from "./icons/SpacesIcon";
 import SubjectsIcon from "./icons/SubjectsIcon";
 import BellIcon from "./icons/BellIcon";
 import SettingsIcon from "./icons/SettingsIcon";
+import { usePathname } from "next/navigation";
+
+const sectionsData = [
+  { icon: <IconStart />, href: "/", text: "Inicio" },
+  { icon: <SchedulesIcon />, href: "/schedule", text: "Horarios" },
+  { icon: <TeachersIcon />, href: "/teachers", text: "Profesores" },
+  { icon: <FamiliesIcon />, href: "/families", text: "Familias" },
+  { icon: <SpacesIcon />, href: "/spaces", text: "Espacios" },
+  { icon: <SubjectsIcon />, href: "/subjects", text: "Assignaturas" },
+  { icon: <BellIcon />, href: "/notifications", text: "Notificaciones" },
+  { icon: <SettingsIcon />, href: "/settings", text: "Settings" },
+];
 
 function Sections() {
+  const pathname = usePathname();
   return (
-    <section className="flex flex-col gap-y-6 items-start ml-4 p-4 cursor-pointer">
-      <article className="flex gap-x-5">
-        <div className="w-5">
-          <IconStart />
-        </div>
-        <Link href="/" className="menuLinks">
-          Inicio
-        </Link>
-      </article>
-      <article  className="flex gap-x-5">
-        <div className="w-5">
-          <SchedulesIcon/>
-        </div>
-        <Link href="/schedule" className="menuLinks">
-          Horarios
-        </Link>
-      </article>
-      <article  className="flex gap-x-5">
-        <div className="w-5">
-          <TeachersIcon/>
-        </div>
-        <Link href="/teachers" className="menuLinks">
-          Profesores
-        </Link>
-      </article>
-      <article  className="flex gap-x-5">
-        <div className="w-5">
-          <FamiliesIcon/>
-        </div>
-        <Link href="families" className="menuLinks">
-          Familias
-        </Link>
-      </article>
-      <article  className="flex gap-x-5">
-        <div className="w-5">
-          <SpacesIcon/>
-        </div>
-        <Link href="spaces" className="menuLinks">
-          Espacios
-        </Link>
-      </article>
-      <article  className="flex gap-x-5">
-        <div className="w-5" >
-          <SubjectsIcon/>
-        </div>
-        <Link href="/subjects" className="menuLinks">
-          Assignaturas
-        </Link>
-      </article>
-      <article  className="flex gap-x-5">
-        <div className="w-5">
-        <BellIcon/>
-        </div>
-        <Link href="/notifications" className="menuLinks">
-          Notificaciones
-        </Link>
-      </article>
-      <article  className="flex gap-x-5">
-        <div className="w-5" >
-          <SettingsIcon/>
-        </div>
-        <Link href="/settings" className="menuLinks">
-          Settings
-        </Link>
-      </article>
+    <section className="flex flex-col gap-y-6 items-start  p-4 cursor-pointer">
+      {sectionsData.map((section, index) => (
+        <article key={index} className={`flex gap-x-5 hover:scale-90 ${
+          pathname === section.href ? 'bg-gray-100 w-full h-full rounded-lg p-1' : ''
+        }`}>
+          <div className="w-5">{section.icon}</div>
+          <Link href={section.href} className="menuLinks">
+            {section.text}
+          </Link>
+        </article>
+      ))}
     </section>
   );
 }

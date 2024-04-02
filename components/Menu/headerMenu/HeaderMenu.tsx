@@ -3,7 +3,7 @@ import Logo from "./Logo";
 
 function HeaderMenu() {
   return (
-    <div className="flex justify-around p-4 mt-4">
+    <div className="flex gap-x-8 p-4 mt-8 ">
       <span className="flex items-center gap-x-4">
         <div className="w-6">
           <Logo />

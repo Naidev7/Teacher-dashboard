@@ -13,3 +13,20 @@
     line-height: 24px;
     color:#1A1919 ;
 }
+.profile-gradient{
+  background: linear-gradient(180deg, #EAE9FE 0%, #D6D5FF 100%);
+}
+.custom-h3 {
+    @apply font-normal leading-6 md:leading-8 text-sm md:text-base lg:text-lg text-gray-500;
+  }
+
+  .custom-th{
+    @apply p-4 text-sm leading-5 font-normal text-gray-400
+  }
+  .custom-td{
+    @apply p-3 text-sm leading-5 font-medium text-gray-600 
+  }
+  .custom-hours-P{
+    @apply font-medium text-sm leading-4 text-gray-700
+  }
+  
