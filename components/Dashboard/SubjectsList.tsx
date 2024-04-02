@@ -61,7 +61,7 @@ export default async function SubjectsList() {
               {s.spaces}
             </td>
             <td className="flex p-3 gap-x-4">
-              <Link href={`/pages/${s._id}`}
+              <Link href={`@/pages/${s._id}`}
                 id="detail"
                 className="text-indigo-700 text-sm leading-5 font-medium"
               >
