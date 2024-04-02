@@ -1,7 +1,10 @@
 import DetailComp from "@/components/Dashboard/DetailComp";
 
+type DetailParams = {
+  id: string;
+};
 
-const getDetailById = async (id)=>{
+const getDetailById = async (id: string): Promise<any>=>{
   try {
     const res = await fetch(`http://localhost:3000/api/subjects/${id}`,{
       cache:"no-cache",

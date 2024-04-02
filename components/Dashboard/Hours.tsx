@@ -18,7 +18,7 @@ export const getHours = async () => {
 async function Hours() {
     const { data } = await getHours();
 
-    const totalHours = data.reduce((total, data)=> total+ data.hours, 0);
+    const totalHours= data.reduce((total: number, data: any)=>  total + data.hours, 0);
 
 
   return (
