@@ -39,7 +39,7 @@ function Add() {
           router.push("/");
         }
       } catch (error) {
-        console.log("Error during the fetch: ", error);
+        console.log("Error during the fetch. ", error);
       }
     }else{
       setError('Todos los campos son necesarios.')
