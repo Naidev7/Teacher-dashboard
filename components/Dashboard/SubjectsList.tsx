@@ -21,7 +21,8 @@ export default async function SubjectsList() {
 
   return (
     <>
-     <table className="mt-8 w-full  border-gray-300 m-auto shadow-lg rounded-2xl">
+    <div className="overflow-x-auto">
+     <table className="mt-8 lg:w-full sm:w-auto  border-gray-300 m-auto shadow-lg rounded-2xl">
       <thead className="bg-gray-100 border-b-2">
         <tr>
           <th className="custom-th rounded-l-2xl">
@@ -84,7 +85,7 @@ export default async function SubjectsList() {
         ))}
         </tbody>
       </table> 
-
+      </div>
     </>
   );
 }
