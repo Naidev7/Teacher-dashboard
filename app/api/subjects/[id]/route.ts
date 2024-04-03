@@ -2,7 +2,11 @@ import { connectDB } from "@/libs/connectionDB";
 import SubjectsM from "@/models/SubjectsM";
 import { NextResponse, NextRequest } from "next/server";
 
-export async function GET(request, { params }){
+interface Params {
+    id: string;
+  }
+
+export async function GET(request: NextRequest, { params }: {params: Params}){
     try {
         const { id } = params;
         await connectDB();

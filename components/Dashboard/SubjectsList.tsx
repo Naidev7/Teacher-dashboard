@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const getSubjects = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/subjects", {
+    const res = await fetch("https://teacher-dashboard-gamma.vercel.app/api/subjects", {
       cache: "no-store",
     });
 

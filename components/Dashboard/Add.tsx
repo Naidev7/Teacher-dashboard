@@ -25,7 +25,7 @@ function Add() {
 
     if(newSubj.name != "" && newSubj.type != "" && newSubj.course != "" && newSubj.group != "" && newSubj.hours != "" && newSubj.spaces != ""){
       try {
-        const res = await fetch("http://localhost:3000/api/subjects", {
+        const res = await fetch("https://teacher-dashboard-gamma.vercel.app/api/subjects", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
@@ -39,7 +39,7 @@ function Add() {
           router.push("/");
         }
       } catch (error) {
-        console.log("Error during the fetch: ", error);
+        console.log("Error during the fetch. ", error);
       }
     }else{
       setError('Todos los campos son necesarios.')

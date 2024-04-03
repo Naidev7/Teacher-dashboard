@@ -6,7 +6,7 @@ const router = useRouter();
 
 const handleNav = (evt:React.MouseEvent<HTMLButtonElement> )=>{
   evt.preventDefault();
-  const evtId = evt.target.id;
+  const evtId = (evt.target as HTMLButtonElement).id;
   console.log('evtId ', evtId)
 
   if(evtId === 'add') return router.push("/pages/add");

@@ -1,7 +1,16 @@
 "use client";
 import Menu from "../Menu/Menu";
 
-function DetailComp({ detailData }) {
+interface DetailData {
+  name: string;
+  type: string;
+  course: string;
+  group: string;
+  hours: number;
+  spaces: number;
+}
+
+function DetailComp({ detailData }: { detailData: DetailData }) {
   const { name, type, course, group, hours, spaces } = detailData;
 
   return (

@@ -1,6 +1,6 @@
 export const getHours = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/subjects", {
+      const res = await fetch("https://teacher-dashboard-gamma.vercel.app/api/subjects", {
         cache: "no-store",
       });
   
@@ -18,7 +18,7 @@ export const getHours = async () => {
 async function Hours() {
     const { data } = await getHours();
 
-    const totalHours = data.reduce((total, data)=> total+ data.hours, 0);
+    const totalHours= data.reduce((total: number, data: any)=>  total + data.hours, 0);
 
 
   return (
