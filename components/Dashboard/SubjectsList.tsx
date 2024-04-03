@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Delete from "./Delete";
 
 export const getSubjects = async () => {
   try {
@@ -68,18 +69,13 @@ export default async function SubjectsList() {
               >
                 Ver
               </Link>
-              <button
+              <Link href={`/pages/edit/${s._id}`}
                 id="edit"
                 className="text-indigo-700 text-sm leading-5 font-medium"
               >
                 Editar
-              </button>
-              <button 
-                id="delate"
-                className="text-red-600 leading-5 text-sm font-medium"
-              >
-                Eliminar
-              </button>
+              </Link>
+              <Delete id={s._id}/>
             </td>
           </tr>
         ))}

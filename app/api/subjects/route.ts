@@ -30,3 +30,9 @@ export async function GET() {
   return NextResponse.json({ data });
 }
 
+export async function DELETE(request:NextRequest){
+  const id = request.nextUrl.searchParams.get("id");
+  await connectDB();
+  await SubjectsM.findByIdAndDelete(id);
+  return NextResponse.json({ mesage: "Subject deleted." }, { status: 200 });
+}

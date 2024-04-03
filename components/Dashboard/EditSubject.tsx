@@ -1,71 +1,87 @@
 "use client";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
 
-function Add() {
-  const [newSubj, setNewSubj] = useState({
-    name: "",
-    type: "",
-    course: "",
-    group: "",
-    hours: "",
-    spaces: ""
-  });
-  const [error, setError] = useState('')
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Link from "next/link";
+
+export interface Props {
+  id: string;
+  name: string;
+  type: string;
+  course: string;
+  group: string;
+  hours: number;
+  spaces: string;
+}
+
+export default function EdutSubject({
+  id,
+  name,
+  type,
+  course,
+  group,
+  hours,
+  spaces,
+}: Props) {
+  const [newName, setNewName] = useState(name);
+  const [newType, setNewType] = useState(type);
+  const [newCourse, setNewCourse] = useState(course);
+  const [newGroup, setNewGroup] = useState(group);
+  const [newHours, setNewHours] = useState(hours);
+  const [newSpaces, setNewSpaces] = useState(spaces);
 
   const router = useRouter();
 
-  const saveValues = (key: string, value: String | Number) => {
-    setNewSubj({ ...newSubj, [key]: value });
-  };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  const handleSend = async (evt: React.MouseEvent<HTMLButtonElement>) => {
-    evt.preventDefault();
+    try {
+      const res = await fetch(`http://localhost:3000/api/subjects/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          newName,
+          newType,
+          newCourse,
+          newGroup,
+          newHours,
+          newSpaces,
+        }),
+      });
 
-    if(newSubj.name != "" && newSubj.type != "" && newSubj.course != "" && newSubj.group != "" && newSubj.hours != "" && newSubj.spaces != ""){
-      try {
-        const res = await fetch("http://localhost:3000/api/subjects", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify({
-            newSubj,
-          }),
-        });
-  
-        if (res.ok) {
-          router.push("/");
-        }
-      } catch (error) {
-        console.log("Error during the fetch: ", error);
+      if (!res.ok) {
+        throw new Error("Failed to update subject.");
       }
-    }else{
-      setError('Todos los campos son necesarios.')
+      router.refresh();
+      router.push("/");
+    } catch (error) {
+      console.log("Error during fetch update data. ", error);
     }
   };
-
   return (
     <section className="flex flex-col justify-center p-12">
       <div className="flex m-auto justify-around w-[90%]">
         <h1 className="font-medium text-base leading-6 text-gray-900 ">
-          Añadir asignatura
+          Editar asignatura
         </h1>
         <Link href="/" className="text-gray-600 cursor-pointer hover:text-indigo-900">
           X
         </Link>
       </div>
 
-      <form className="mx-auto flex flex-col gap-y-6 mt-9 md:w-2/3 lg:w-1/2 ">
+      <form onSubmit={handleSubmit}
+      className="mx-auto flex flex-col gap-y-6 mt-9 md:w-2/3 lg:w-1/2 "
+      >
         <label htmlFor="name" className="text-sm text-gray-900">
           Seleciona la asignatura
         </label>
         <select
-          onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onChange={(evt) => setNewName(evt.target.value)}
           name="name"
           id="name"
-          value={newSubj.name}
+          value={newName}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4 text-gray-600 cursor-pointer"
         >
           <option value="selecione" disabled>
@@ -84,10 +100,10 @@ function Add() {
           Tipo de asignatura
         </label>
         <select
-          onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onChange={(evt) => setNewType(evt.target.value)}
           name="type"
           id="type"
-          value={newSubj.type}
+          value={newType}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
           <option disabled>Selecione</option>
@@ -99,10 +115,10 @@ function Add() {
           Curso
         </label>
         <select
-          onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onChange={(evt) => setNewCourse(evt.target.value)}
           name="course"
           id="course"
-          value={newSubj.course}
+          value={newCourse}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
           <option value="selecione" disabled>
@@ -118,10 +134,10 @@ function Add() {
           Grupo
         </label>
         <select
-          onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onChange={(evt) => setNewGroup(evt.target.value)}
           name="group"
           id="group"
-          value={newSubj.group}
+          value={newGroup}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
           <option value="selecione" disabled>
@@ -136,10 +152,10 @@ function Add() {
           Horas
         </label>
         <select
-          onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onChange={(evt) => setNewHours(parseInt(evt.target.value))}
           name="hours"
           id="hours"
-          value={newSubj.hours}
+          value={newHours}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
           <option value="selecione" disabled>
@@ -152,15 +168,14 @@ function Add() {
           <option value="3">3</option>
           <option value="3.5">3.5</option>
         </select>
-
         <label htmlFor="spaces" className="text-sm text-gray-900">
           Espacio
         </label>
         <select
-          onChange={(evt) => saveValues(evt.target.id, evt.target.value)}
+          onChange={(evt) => setNewSpaces(evt.target.value)}
           name="spaces"
           id="spaces"
-          value={newSubj.spaces}
+          value={newSpaces}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
           <option value="selecione" disabled>
@@ -179,18 +194,11 @@ function Add() {
           <option value="1º Bach-Grupo B">4º Bach-Grupo B</option>
           <option value="1º Bach-Grupo C">º Bach-Grupo C</option>
         </select>
-        <p className="text-red-700">
-        { error }
-        </p>
-        <button
-          onClick={handleSend}
-          className="bg-indigo-700 text-white p-4 ml-[60%] rounded-lg w-[40%] font-medium text-sm leading-5 cursor-pointer"
-        >
-          Añadir asignaturas
+
+        <button className="bg-indigo-700 text-white p-4 ml-[60%] rounded-lg w-[40%] font-medium text-sm leading-5 cursor-pointer">
+          Editar
         </button>
       </form>
     </section>
   );
 }
-
-export default Add;
