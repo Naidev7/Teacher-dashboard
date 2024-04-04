@@ -1,4 +1,4 @@
-import Menu from "@/components/Menu/Menu";
+import Menu from "@/components/Dashboard/Menu";
 import Dashboard from "@/components/Dashboard/Dashboard"
 import SubjectsList from "@/components/Dashboard/SubjectsList"
 

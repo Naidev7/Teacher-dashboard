@@ -1,5 +1,5 @@
 "use client";
-import Menu from "../Menu/Menu";
+import Menu from "./Menu";
 
 interface DetailData {
   name: string;
