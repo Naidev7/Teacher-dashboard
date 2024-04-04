@@ -24,7 +24,7 @@ Para clonar y ejecutar este proyecto en tu máquina local, sigue estos pasos:
 1. Clona el repositorio desde GitHub:
 
 
-git clone https://github.com/tu_usuario/dashboard-profesores.git
+git clone https://https://github.com/Naidev7/Teacher-dashboard.git
 
 2. Navega hasta el directorio del proyecto:
 
