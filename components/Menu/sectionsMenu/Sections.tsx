@@ -14,13 +14,13 @@ import { signOut } from "next-auth/react";
 
 const sectionsData = [
   { icon: <IconStart />, href: "/dashboard", text: "Inicio" },
-  { icon: <SchedulesIcon />, href: "/schedule", text: "Horarios" },
-  { icon: <TeachersIcon />, href: "/teachers", text: "Profesores" },
-  { icon: <FamiliesIcon />, href: "/families", text: "Familias" },
-  { icon: <SpacesIcon />, href: "/spaces", text: "Espacios" },
-  { icon: <SubjectsIcon />, href: "/subjects", text: "Assignaturas" },
-  { icon: <BellIcon />, href: "/notifications", text: "Notificaciones" },
-  { icon: <SettingsIcon />, href: "/settings", text: "Settings" },
+  { icon: <SchedulesIcon />, href: "#", text: "Horarios" },
+  { icon: <TeachersIcon />, href: "#", text: "Profesores" },
+  { icon: <FamiliesIcon />, href: "#", text: "Familias" },
+  { icon: <SpacesIcon />, href: "#", text: "Espacios" },
+  { icon: <SubjectsIcon />, href: "#", text: "Assignaturas" },
+  { icon: <BellIcon />, href: "#", text: "Notificaciones" },
+  { icon: <SettingsIcon />, href: "#", text: "Settings" },
 ];
 
 function Sections() {

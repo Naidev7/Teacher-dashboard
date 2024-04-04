@@ -5,7 +5,7 @@ import { NextResponse, NextRequest } from "next/server";
 export async function POST(req: NextRequest) {
   const res = await req.json() 
 
-  const { id, name, type, course, group, hours, spaces } = res.newSubj;
+  const { name, type, course, group, hours, spaces } = res.newSubj;
  
 
   try {
@@ -17,8 +17,7 @@ export async function POST(req: NextRequest) {
       course,
       group,
       hours,
-      spaces,
-      mat: id
+      spaces
     });
     if(createdSubj) return NextResponse.json({success:true, mesasge: 'Assignatura creada correctamente.' })
     

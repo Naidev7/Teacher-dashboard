@@ -16,6 +16,7 @@ export const authOptions = {
         try {
           await connectDB();
           const user = await User.findOne({ email });
+          console.log('user credentials: ', user)
 
           if (!user) {
             return null;

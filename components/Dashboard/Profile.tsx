@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 function Profile() {
   const { data: session } = useSession();
 
+
   return (
     <section className="flex flex-col gap-y-2 mt-2">
       <h4 className="font-medium text-lg leading-8">Profesores</h4>
