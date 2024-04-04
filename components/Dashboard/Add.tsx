@@ -36,7 +36,7 @@ function Add() {
         });
   
         if (res.ok) {
-          router.push("/");
+          router.push("/dashboard");
         }
       } catch (error) {
         console.log("Error during the fetch: ", error);
@@ -52,7 +52,7 @@ function Add() {
         <h1 className="font-medium text-base leading-6 text-gray-900 ">
           Añadir asignatura
         </h1>
-        <Link href="/" className="text-gray-600 cursor-pointer hover:text-indigo-900">
+        <Link href="/dashboard" className="text-gray-600 cursor-pointer hover:text-indigo-900">
           X
         </Link>
       </div>

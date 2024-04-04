@@ -24,7 +24,7 @@ async function Hours() {
   return (
    <section className="flex flex-col items-center gap-y-12 border-b-2">
 
-    <article className="flex justify-around bg-gray-200 mt-6 p-3 w-[30%] h-12 items-center rounded-xl">
+    <article className="hoursArticle flex justify-around bg-gray-200 mt-6 p-3 w-[30%] h-12 items-center sm:gap-x-3 rounded-xl">
         <button className="bg-white p-3 rounded-xl w-[50%] font-medium text-sm leading-5 cursor-pointer">Semanal</button>
         <button className="text-gray-700 font-normal text-sm leading-5 cursor-pointer"> Anual</button>
     </article>

@@ -9,9 +9,11 @@ import SubjectsIcon from "./icons/SubjectsIcon";
 import BellIcon from "./icons/BellIcon";
 import SettingsIcon from "./icons/SettingsIcon";
 import { usePathname } from "next/navigation";
+import { CiLogout } from "react-icons/ci";
+import { signOut } from "next-auth/react";
 
 const sectionsData = [
-  { icon: <IconStart />, href: "/", text: "Inicio" },
+  { icon: <IconStart />, href: "/dashboard", text: "Inicio" },
   { icon: <SchedulesIcon />, href: "/schedule", text: "Horarios" },
   { icon: <TeachersIcon />, href: "/teachers", text: "Profesores" },
   { icon: <FamiliesIcon />, href: "/families", text: "Familias" },
@@ -35,6 +37,15 @@ function Sections() {
           </Link>
         </article>
       ))}
+
+      <article onClick={(e)=> signOut()} className="flex gap-x-5 hover:scale-90">
+        <div className="text-xl">
+        <CiLogout />
+        </div>
+        <Link href="/" className="menuLinks">
+        Log out
+        </Link>
+      </article>
     </section>
   );
 }

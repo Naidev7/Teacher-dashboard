@@ -26,7 +26,7 @@ const handleNav = (evt:React.MouseEvent<HTMLButtonElement> )=>{
         </button>
       </article>
 
-      <button id="add" onClick={handleNav} className="mt-8 bg-indigo-600 p-2 rounded-lg text-white font-medium text-sm leading-5 ml-[80%] cursor-pointer">
+      <button id="add" onClick={handleNav} className="addBtn mt-8 bg-indigo-600 p-2 rounded-lg text-white font-medium text-sm leading-5 lg:ml-[80%] sm:m-auto cursor-pointer">
         + Añadir Assgnatura
       </button>
 

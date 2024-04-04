@@ -55,7 +55,7 @@ export default function EdutSubject({
         throw new Error("Failed to update subject.");
       }
       router.refresh();
-      router.push("/");
+      router.push("/dashboard");
     } catch (error) {
       console.log("Error during fetch update data. ", error);
     }
@@ -66,7 +66,7 @@ export default function EdutSubject({
         <h1 className="font-medium text-base leading-6 text-gray-900 ">
           Editar asignatura
         </h1>
-        <Link href="/" className="text-gray-600 cursor-pointer hover:text-indigo-900">
+        <Link href="/dashboard" className="text-gray-600 cursor-pointer hover:text-indigo-900">
           X
         </Link>
       </div>
