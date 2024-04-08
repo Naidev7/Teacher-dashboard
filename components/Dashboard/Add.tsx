@@ -2,8 +2,14 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useSession } from "next-auth/react";
+
 
 function Add() {
+  const { data: session } = useSession();
+  console.log('session in add: ', session)
+  
+
   const [newSubj, setNewSubj] = useState({
     name: "",
     type: "",
@@ -32,6 +38,7 @@ function Add() {
           },
           body: JSON.stringify({
             newSubj,
+            email: session?.user?.email
           }),
         });
   

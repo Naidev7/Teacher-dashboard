@@ -2,7 +2,7 @@ import { connectDB } from "@/libs/connectionDB";
 import User from "@/models/User";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt from "bcrypt"
+import bcrypt from "bcrypt";
 
 export const authOptions = {
   providers: [
@@ -16,7 +16,7 @@ export const authOptions = {
         try {
           await connectDB();
           const user = await User.findOne({ email });
-          console.log('user credentials: ', user)
+          console.log("user credentials: ", user);
 
           if (!user) {
             return null;
@@ -28,7 +28,7 @@ export const authOptions = {
             return null;
           }
 
-          return user;
+          return { name: user.name, email: user.email, id: user._id };
         } catch (error) {
           console.log("Error: ", error);
         }

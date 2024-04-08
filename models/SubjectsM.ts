@@ -7,6 +7,6 @@ const SubjectSchema = new mongoose.Schema({
     group: String,
     hours: Number,
     spaces: String,
-    
+    teacherEmail: String,
 })
 export default mongoose.models.Subject || mongoose.model('Subject', SubjectSchema)
