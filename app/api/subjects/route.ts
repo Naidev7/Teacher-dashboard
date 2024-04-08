@@ -32,12 +32,8 @@ export async function POST(req: NextRequest) {
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams.get("session");
-  console.log("searchParams: ", searchParams);
-
   await connectDB();
   const data = await SubjectsM.find({ teacherEmail: searchParams });
-  console.log('data: ', data)
-
   return NextResponse.json({ data });
 }
 
