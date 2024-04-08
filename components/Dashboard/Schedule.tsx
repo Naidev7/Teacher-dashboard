@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import SubjectsList from "./SubjectsList";
+import AddHours from "./addHours";
 
 function Schedule() {
 const router = useRouter();
@@ -22,9 +22,7 @@ const handleNav = (evt:React.MouseEvent<HTMLButtonElement> )=>{
           </p>
         </button>
 
-        <button className="flex-1 lg:flex-none font-semibold text-sm leading-6 text-gray-700">
-          Horas complementarias
-        </button>
+       <AddHours/>
       </article>
 
       <button id="add" onClick={handleNav} className="addBtn mt-8 bg-indigo-600 p-2 rounded-lg text-white font-medium text-sm leading-5 lg:ml-[80%] sm:m-auto cursor-pointer">
