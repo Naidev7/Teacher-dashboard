@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import SubjectsList from "./SubjectsList";
 
 function Schedule() {
 const router = useRouter();
