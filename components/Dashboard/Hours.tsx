@@ -1,9 +1,10 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 
-export const getHours = async (session) => {
+export const getHours = async (userEmail) => {
     try {
-      const res = await fetch(`https://teacher-dashboard-gamma.vercel.app/api/subjects?session=${session}`, {
+      const res = await fetch(`http://localhost:3000/api/subjects?session=${userEmail}`, {
+        method: 'GET',
         cache: "no-store",
       });
   
@@ -20,7 +21,11 @@ export const getHours = async (session) => {
 
 async function Hours() {
   const session = await getServerSession(authOptions);
-    const { data } = await getHours(session);
+  const { user } = session
+  const userEmail = user.email
+
+
+    const { data } = await getHours(userEmail);
     const totalHours= data.reduce((total: number, data: any)=>  total + data.hours, 0);
   return (
    <section className="flex flex-col items-center gap-y-12 border-b-2">

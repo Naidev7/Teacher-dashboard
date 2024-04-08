@@ -16,7 +16,6 @@ function Delete({ id }: { id: string }) {
         });
 
         if (res.ok) {
-          console.log("Amo a borra");
           router.refresh();
         }
       }

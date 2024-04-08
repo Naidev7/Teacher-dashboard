@@ -1,9 +1,12 @@
 import Link from "next/link";
 import Delete from "./Delete";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
-export const getSubjects = async () => {
+export const getSubjects = async (userEmail) => {
   try {
-    const res = await fetch("https://teacher-dashboard-gamma.vercel.app/api/subjects", {
+    const res = await fetch(`http://localhost:3000/api/subjects?session=${userEmail}`, {
+      method: 'GET',
       cache: "no-store",
     });
 
@@ -18,7 +21,13 @@ export const getSubjects = async () => {
 };
 
 export default async function SubjectsList() {
-  const { data } = await getSubjects();
+
+  const session = await getServerSession(authOptions);
+  const { user } = session;
+  const userEmail = user.email;
+  console.log('user email', userEmail)
+
+  const { data } = await getSubjects(userEmail);
 
   return (
     <>
