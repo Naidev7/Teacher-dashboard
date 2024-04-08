@@ -6,13 +6,15 @@ export async function POST(req: NextRequest, response: NextResponse) {
   const res = await req.json();
   console.log("res: ", res);
 
-  const { hours, teacherEmail } = res;
+  const  hours  = res.hours;
+  console.log('hours: ', hours)
+  const email = res.email;
   try {
     await connectDB();
 
     const createComplHour = await ComplementH.create({
-      hours: hours,
-      teacherEmail: teacherEmail,
+       hours,
+      teacherEmail: email,
     });
     if (createComplHour)
       return NextResponse.json({

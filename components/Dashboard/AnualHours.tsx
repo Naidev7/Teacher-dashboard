@@ -32,7 +32,7 @@ const AnualHours: React.FC<AnualHoursProps> = ({ totalHours }) => {
       {showTotal && (
         <div className="fixed inset-0 flex justify-center items-center bg-white bg-opacity-75 z-50">
           <div className="bg-white p-4 rounded-lg shadow-md">
-            <div className="text-gray-700 font-normal text-sm leading-5">
+            <div className="text-gray-700 p-2 font-normal text-xl leading-5">
               Total de horas anuales: {multipliedHours} h.
             </div>
             <button

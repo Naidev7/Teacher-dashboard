@@ -31,8 +31,9 @@ export default async function SubjectsList() {
 
   return (
     <>
-    <div className="overflow-x-auto">
-     <table className=" mt-8 lg:w-full sm:w-auto  border-gray-300 m-auto shadow-lg rounded-2xl">
+   <div className="overflow-x-auto">
+  <div className="min-w-full">
+    <table className="mt-8 lg:w-full sm:w-auto sm:min-w-full border-gray-300 m-auto shadow-lg rounded-2xl divide-y divide-gray-200">
       <thead className="bg-gray-100 border-b-2">
         <tr>
           <th className="custom-th rounded-l-2xl">
@@ -57,8 +58,8 @@ export default async function SubjectsList() {
             Acciones
           </th>
         </tr>
-        </thead>
-        <tbody>
+      </thead>
+      <tbody>
         {data.map((s: any, i: number) => (
           <tr key={i} className="text-start pl-6">
             <td className="custom-td">{s.name}</td>
@@ -72,25 +73,21 @@ export default async function SubjectsList() {
               {s.spaces}
             </td>
             <td className="flex p-3 gap-x-4">
-              <Link href={`/pages/${s._id}`}
-                id="detail"
-                className="text-indigo-700 text-sm leading-5 font-medium"
-              >
+              <Link href={`/pages/${s._id}`} id="detail" className="text-indigo-700 text-sm leading-5 font-medium">
                 Ver
               </Link>
-              <Link href={`/pages/edit/${s._id}`}
-                id="edit"
-                className="text-indigo-700 text-sm leading-5 font-medium"
-              >
+              <Link href={`/pages/edit/${s._id}`} id="edit" className="text-indigo-700 text-sm leading-5 font-medium">
                 Editar
               </Link>
-              <Delete id={s._id}/>
+              <Delete id={s._id} />
             </td>
           </tr>
         ))}
-        </tbody>
-      </table> 
-      </div>
+      </tbody>
+    </table>
+  </div>
+</div>
+
     </>
   );
 }

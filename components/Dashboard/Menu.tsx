@@ -19,7 +19,7 @@ const sectionsData = [
   { icon: <LiaChalkboardTeacherSolid />, href: "#", text: "Profesores" },
   { icon: <HiOutlineUserGroup />, href: "#", text: "Familias" },
   { icon: <LuBox />, href: "#", text: "Espacios" },
-  { icon: <IoBookOutline />, href: "#", text: "Assignaturas" },
+  { icon: <IoBookOutline />, href: "/subjects", text: "Asignaturas" },
   { icon: <FaRegBell />, href: "#", text: "Notificaciones" },
   { icon: <CiSettings />, href: "#", text: "Settings" },
 ];

@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import AddHours from "./addHours";
+import AddHours from "./AddHours";
 
 function Schedule() {
 const router = useRouter();
