@@ -11,7 +11,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
-    color:#1A1919 ;
+    color: white;
 }
 .profile-gradient{
   background: linear-gradient(180deg, #EAE9FE 0%, #D6D5FF 100%);
@@ -22,7 +22,7 @@
   }
 
   .custom-th{
-    @apply p-4 text-sm leading-5 font-normal text-gray-400 capitalize
+    @apply p-4 text-sm leading-5 font-normal text-white capitalize
   }
   .custom-td{
     @apply p-3 text-sm leading-5 font-medium text-gray-600 text-center capitalize
@@ -40,3 +40,18 @@
       margin-left: 40px;
     }
   }
+
+  .tabla-mobile{
+    display: none;
+    width: 100%;
+  }
+ 
+  @media (max-width:768px){
+    .tabla-mobile{
+      display: block;
+    }
+    .tabla-desktop{
+      display: none;
+    }
+  }
+

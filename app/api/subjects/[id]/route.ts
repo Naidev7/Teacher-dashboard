@@ -25,7 +25,6 @@ export async function PUT(
   { params }: { params: Params }
 ) {
   const { id } = params;
-  console.log('My params: ', id)
 
   const {
     newName: name,

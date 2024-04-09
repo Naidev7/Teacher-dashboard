@@ -15,13 +15,13 @@ import { CiSettings } from "react-icons/ci";
 
 const sectionsData = [
   { icon: <AiOutlineHome />, href: "/dashboard", text: "Inicio" },
-  { icon: <GrSchedules />, href: "#", text: "Horarios" },
-  { icon: <LiaChalkboardTeacherSolid />, href: "#", text: "Profesores" },
-  { icon: <HiOutlineUserGroup />, href: "#", text: "Familias" },
-  { icon: <LuBox />, href: "#", text: "Espacios" },
+  { icon: <GrSchedules />, href: "/inProgress", text: "Horarios" },
+  { icon: <LiaChalkboardTeacherSolid />, href: "/inProgress", text: "Profesores" },
+  { icon: <HiOutlineUserGroup />, href: "/inProgress", text: "Familias" },
+  { icon: <LuBox />, href: "/inProgress", text: "Espacios" },
   { icon: <IoBookOutline />, href: "/subjects", text: "Asignaturas" },
-  { icon: <FaRegBell />, href: "#", text: "Notificaciones" },
-  { icon: <CiSettings />, href: "#", text: "Settings" },
+  { icon: <FaRegBell />, href: "/inProgress", text: "Notificaciones" },
+  { icon: <CiSettings />, href: "/inProgress", text: "Settings" },
 ];
 
 function Sections() {
@@ -30,10 +30,10 @@ function Sections() {
     <section className="mt-6 flex flex-col gap-y-6 items-start  p-4 cursor-pointer">
       {sectionsData.map((section, index) => (
         <article key={index} className={`flex gap-x-5 hover:scale-90 ${
-          pathname === section.href ? 'bg-gray-100 w-full h-full rounded-lg p-1' : ''
+          pathname === section.href ? 'bg-sky-950 text-white rounded-lg p-2' : ''
         }`}>
           <div className="text-xl">{section.icon}</div>
-          <Link href={section.href} className="menuLinks">
+          <Link href={section.href} className="menuLinks text-white">
             {section.text}
           </Link>
         </article>
