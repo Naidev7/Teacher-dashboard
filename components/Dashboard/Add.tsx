@@ -75,7 +75,7 @@ function Add() {
           value={newSubj.name}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4 text-gray-600 cursor-pointer"
         >
-          <option value="selecione" disabled>
+          <option value="selecione" selected hidden>
             Selecione
           </option>
           <option value="Matemáticas">Matemáticas</option>
@@ -97,7 +97,7 @@ function Add() {
           value={newSubj.type}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
-          <option disabled>Selecione</option>
+          <option selected hidden>Selecione</option>
           <option value="Obligatoria">Obligatoria</option>
           <option value="Optativa">Optativa</option>
         </select>
@@ -112,7 +112,7 @@ function Add() {
           value={newSubj.course}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
-          <option value="selecione" disabled>
+          <option selected value="selecione" hidden>
             Selecione
           </option>
           <option value="1º">1º de Bachillerato</option>
@@ -131,7 +131,7 @@ function Add() {
           value={newSubj.group}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
-          <option value="selecione" disabled>
+          <option selected value="selecione" hidden>
             Selecione
           </option>
           <option value="A">A</option>
@@ -149,7 +149,7 @@ function Add() {
           value={newSubj.hours}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
-          <option value="selecione" disabled>
+          <option selected value="selecione" hidden>
             Selecione
           </option>
           <option value="1">1</option>
@@ -170,7 +170,7 @@ function Add() {
           value={newSubj.spaces}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
-          <option value="selecione" disabled>
+          <option selected value="selecione" hidden>
             Selecione
           </option>
           <option value="1º Bach-Grupo A">1º Bach-Grupo A</option>

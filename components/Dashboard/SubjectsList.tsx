@@ -33,18 +33,18 @@ export default async function SubjectsList() {
 
   return (
     <>
-      <div className="w-[80%] m-auto tabla-desktop">
+      <div className="w-[90%] mb-8  tabla-desktop">
         <div className="min-w-full">
-          <table className="mt-8 lg:w-full sm:w-auto sm:min-w-full border-gray-300 m-auto shadow-lg rounded-2xl divide-y divide-gray-200">
+          <table className=" mt-6 ml-6 lg:w-full sm:w-auto sm:min-w-full m-auto shadow-lg divide-y divide-gray-200">
             <thead className="bg-sky-950">
               <tr>
-                <th className="custom-th rounded-l-xl">Nombre</th>
+                <th className="custom-th rounded-l-2xl">Nombre</th>
                 <th className="custom-th">Tipo</th>
                 <th className="custom-th">Curso</th>
                 <th className="custom-th">Grupo</th>
                 <th className="custom-th">Horas Semana</th>
                 <th className="custom-th">Espacio Regular</th>
-                <th className="custom-th rounded-r-xl">Acciones</th>
+                <th className="custom-th rounded-r-2xl">Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -80,8 +80,8 @@ export default async function SubjectsList() {
         </div>
       </div>
 
-      <div className="flex flex-col mt-8">
-        <div className="tabla-mobile shadow overflow-hidden sm:rounded-lg">
+      <div className="flex flex-col tabla-mobile">
+        <div className="shadow overflow-hidden sm:rounded-lg">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             <div className="p-4 border border-gray-200 rounded">
               <div className="text-sm font-medium text-gray-500">Nombre</div>

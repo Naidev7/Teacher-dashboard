@@ -11,10 +11,9 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
-    color: white;
 }
 .profile-gradient{
-  background: linear-gradient(180deg, #EAE9FE 0%, #D6D5FF 100%);
+  background: linear-gradient(180deg, #8699d2 0%, #D6D5FF 100%);
 }
 
 .custom-h3 {

@@ -8,7 +8,7 @@ export default function Main() {
       <section className="hidden sm:block">
       <Menu />
       </section>
-      <section className=" flex flex-col lg:ml-9 w-full p-6  bg-gray-50 ">
+      <section className=" flex flex-col lg:ml-9 w-full p-6 h-screen  bg-gray-50 ">
       <Dashboard />
       <SubjectsList/>
       </section>

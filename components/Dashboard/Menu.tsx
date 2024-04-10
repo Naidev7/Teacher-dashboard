@@ -33,7 +33,7 @@ function Sections() {
           pathname === section.href ? 'bg-sky-950 text-white rounded-lg p-2' : ''
         }`}>
           <div className="text-xl">{section.icon}</div>
-          <Link href={section.href} className="menuLinks text-white">
+          <Link href={section.href} className="menuLinks">
             {section.text}
           </Link>
         </article>
