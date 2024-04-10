@@ -5,7 +5,7 @@ import AnualHours from "./AnualHours";
 export const getHours = async (userEmail) => {
   try {
     const res = await fetch(
-      `http://localhost:3000/api/subjects?session=${userEmail}`,
+      `https://teacher-dashboard-gamma.vercel.app/api/subjects?session=${userEmail}`,
       {
         method: "GET",
         cache: "no-store",
@@ -24,7 +24,7 @@ export const getHours = async (userEmail) => {
 
 export const getComplH = async (userEmail) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/hours?session=${userEmail}`, {
+    const res = await fetch(`https://teacher-dashboard-gamma.vercel.app/api/hours?session=${userEmail}`, {
       method: 'GET',
       cache: "no-store",
     });

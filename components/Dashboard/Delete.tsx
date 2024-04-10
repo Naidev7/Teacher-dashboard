@@ -11,7 +11,7 @@ function Delete({ id }: { id: string }) {
 
     try {
       if (confirmed) {
-        const res = await fetch(`http://localhost:3000/api/subjects?id=${id}`, {
+        const res = await fetch(`https://teacher-dashboard-gamma.vercel.app/api/subjects?id=${id}`, {
           method: "DELETE",
         });
 

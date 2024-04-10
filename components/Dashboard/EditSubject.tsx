@@ -36,7 +36,7 @@ export default function EdutSubject({
     e.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:3000/api/subjects/${id}`, {
+      const res = await fetch(`https://teacher-dashboard-gamma.vercel.app/api/subjects/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",

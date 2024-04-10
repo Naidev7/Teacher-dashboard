@@ -20,7 +20,7 @@ function EditUser() {
     e.preventDefault();
     if(newData.name != "" || newData.email != ""){
         try {
-          const res = await fetch(`http://localhost:3000/api/updateUser?session=${session?.user?.email}`,{
+          const res = await fetch(`https://teacher-dashboard-gamma.vercel.app/api/updateUser?session=${session?.user?.email}`,{
             method: 'PUT',
             headers: {
               "Content-type": "application/json",

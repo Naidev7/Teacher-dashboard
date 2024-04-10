@@ -21,7 +21,7 @@ export default function RegisterForm() {
     }
 
     try {
-      const resUserExists = await fetch("http://localhost:3000/api/userExist", {
+      const resUserExists = await fetch("https://teacher-dashboard-gamma.vercel.app/api/userExist", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -36,7 +36,7 @@ export default function RegisterForm() {
         return;
       }
 
-      const res = await fetch("http://localhost:3000/api/register", {
+      const res = await fetch("api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

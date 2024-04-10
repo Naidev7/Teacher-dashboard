@@ -19,7 +19,7 @@ function AddHours() {
     e.preventDefault();
     if (hours > 0) {
       try {
-        const res = await fetch("http://localhost:3000/api/hours", {
+        const res = await fetch("https://teacher-dashboard-gamma.vercel.app/api/hours", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
@@ -32,7 +32,6 @@ function AddHours() {
 
         if (res.ok) {
           setShowAdd(false);
-          console.log("ok created");
           router.push("/dashboard");
         }
       } catch (error) {

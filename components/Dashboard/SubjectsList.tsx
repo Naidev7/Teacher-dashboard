@@ -6,7 +6,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 export const getSubjects = async (userEmail) => {
   try {
     const res = await fetch(
-      `http://localhost:3000/api/subjects?session=${userEmail}`,
+      `https://teacher-dashboard-gamma.vercel.app/api/subjects?session=${userEmail}`,
       {
         method: "GET",
         cache: "no-store",
@@ -140,13 +140,13 @@ export default async function SubjectsList() {
               {data.map((s: any, i: number) => (
                 <div key={i} className="flex mt-1">
                   <Link
-                    href={`/pages/${s._id}`}
+                    href={`/${s._id}`}
                     className="text-indigo-600 hover:text-indigo-900 mr-4"
                   >
                     Ver
                   </Link>
                   <Link
-                    href={`/pages/${s._id}`}
+                    href={`/edit/${s._id}`}
                     className="text-indigo-600 hover:text-indigo-900 mr-4"
                   >
                     Editar
