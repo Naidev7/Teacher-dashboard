@@ -35,7 +35,7 @@ export const getComplH = async (userEmail) => {
 
     return res.json();
   } catch (error) {
-    console.log("Error loading subjects: ", error);
+    console.log( error);
   }
 };
 

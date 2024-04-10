@@ -20,7 +20,7 @@ function Delete({ id }: { id: string }) {
         }
       }
     } catch (error) {
-      console.log("Error borrando... ", error);
+      console.log(error);
     }
   };
 

@@ -8,10 +8,7 @@ const router = useRouter();
 const handleNav = (evt:React.MouseEvent<HTMLButtonElement> )=>{
   evt.preventDefault();
   const evtId = (evt.target as HTMLButtonElement).id;
-  console.log('evtId ', evtId)
-
   if(evtId === 'add') return router.push("/add");
-
 }
   return (
     <section className="mt-12 px-4 lg:px-0">

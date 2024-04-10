@@ -57,7 +57,7 @@ export default function EdutSubject({
       router.refresh();
       router.push("/dashboard");
     } catch (error) {
-      console.log("Error during fetch update data. ", error);
+      console.log(error);
     }
   };
   return (

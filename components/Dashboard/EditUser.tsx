@@ -36,7 +36,7 @@ function EditUser() {
           }
           setNewData(false)
         } catch (error) {
-            console.log('Error durante el fetch update user:', error)
+            console.log( error)
         }
     } else{
         setError('Rellene los campos antes de actualizar sus datos.')

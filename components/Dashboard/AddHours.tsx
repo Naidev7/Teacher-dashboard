@@ -35,7 +35,7 @@ function AddHours() {
           router.push("/dashboard");
         }
       } catch (error) {
-        console.log("Error en añadir horas fecth.", error);
+        console.log(error);
       }
     } else {
       setError("Debe añadir alguna hora complementaria.");

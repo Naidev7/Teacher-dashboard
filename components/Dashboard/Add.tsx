@@ -7,9 +7,6 @@ import { useSession } from "next-auth/react";
 
 function Add() {
   const { data: session } = useSession();
-  console.log('session in add: ', session)
-  
-
   const [newSubj, setNewSubj] = useState({
     name: "",
     type: "",

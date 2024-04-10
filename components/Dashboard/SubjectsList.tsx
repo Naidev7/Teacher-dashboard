@@ -19,7 +19,7 @@ export const getSubjects = async (userEmail) => {
 
     return res.json();
   } catch (error) {
-    console.log("Error loading subjects: ", error);
+    console.log(error);
   }
 };
 
@@ -27,7 +27,6 @@ export default async function SubjectsList() {
   const session = await getServerSession(authOptions);
   const { user } = session;
   const userEmail = user.email;
-  console.log("user email", userEmail);
 
   const { data } = await getSubjects(userEmail);
 
