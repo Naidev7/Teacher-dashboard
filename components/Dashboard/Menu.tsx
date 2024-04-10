@@ -27,7 +27,7 @@ const sectionsData = [
 function Sections() {
   const pathname = usePathname();
   return (
-    <section className="mt-6 flex flex-col gap-y-6 items-start  p-4 cursor-pointer">
+    <section className="navbar mt-6 flex flex-col gap-y-6 items-start  p-4 cursor-pointer">
       {sectionsData.map((section, index) => (
         <article key={index} className={`flex gap-x-5 hover:scale-90 ${
           pathname === section.href ? 'bg-sky-950 text-white rounded-lg p-2' : ''

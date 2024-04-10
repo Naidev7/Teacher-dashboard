@@ -44,7 +44,10 @@
     display: none;
     width: 100%;
   }
- 
+  .menu{
+    display: none;
+  }
+
   @media (max-width:768px){
     .tabla-mobile{
       display: block;
@@ -52,5 +55,9 @@
     .tabla-desktop{
       display: none;
     }
+    .menu{
+      display: block;
+    }
+    
   }
 

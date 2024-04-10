@@ -4,6 +4,8 @@ import Schedule from "./Schedule";
 
 
 function Dashboard() {
+
+
   return (
     <section >
     <Profile/>
