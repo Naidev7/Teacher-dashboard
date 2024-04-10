@@ -1,13 +1,16 @@
 'use client';
 import { useSession } from "next-auth/react";
 import EditUser from "./EditUser";
+import { FaUserAlt } from "react-icons/fa"
+import { useState } from "react";
 
 
 function Profile() {
   const { data: session } = useSession();
 
-  const firstNameInitial = session?.user?.name[0] ;
-  const lastNameInitial = session?.user?.name.split(" ")[1]?.[0];
+  const firstNameInitial = session?.user?.name[0] || "";
+  const lastNameInitial = session?.user?.name.split(" ")[1]?.[0] || "";
+
 
   return (
     <section className="flex flex-col gap-y-2 mt-2">
