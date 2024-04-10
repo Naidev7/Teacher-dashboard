@@ -10,7 +10,7 @@ const handleNav = (evt:React.MouseEvent<HTMLButtonElement> )=>{
   const evtId = (evt.target as HTMLButtonElement).id;
   console.log('evtId ', evtId)
 
-  if(evtId === 'add') return router.push("/pages/add");
+  if(evtId === 'add') return router.push("/add");
 
 }
   return (

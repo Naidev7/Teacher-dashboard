@@ -84,7 +84,7 @@ export default function EdutSubject({
           value={newName}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4 text-gray-600 cursor-pointer"
         >
-          <option value="selecione" disabled>
+          <option value="selecione" selected >
             Selecione
           </option>
           <option value="Matemáticas">Matemáticas</option>
@@ -106,7 +106,7 @@ export default function EdutSubject({
           value={newType}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
-          <option disabled>Selecione</option>
+          <option hidden>Selecione</option>
           <option value="Obligatoria">Obligatoria</option>
           <option value="Optativa">Optativa</option>
         </select>
@@ -121,7 +121,7 @@ export default function EdutSubject({
           value={newCourse}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
-          <option value="selecione" disabled>
+          <option value="selecione" hidden>
             Selecione
           </option>
           <option value="1º">1º de Bachillerato</option>
@@ -140,7 +140,7 @@ export default function EdutSubject({
           value={newGroup}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
-          <option value="selecione" disabled>
+          <option value="selecione" hidden>
             Selecione
           </option>
           <option value="A">A</option>
@@ -158,7 +158,7 @@ export default function EdutSubject({
           value={newHours}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
-          <option value="selecione" disabled>
+          <option value="selecione" hidden>
             Selecione
           </option>
           <option value="1">1</option>
@@ -178,7 +178,7 @@ export default function EdutSubject({
           value={newSpaces}
           className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4  text-gray-600 cursor-pointer"
         >
-          <option value="selecione" disabled>
+          <option value="selecione" hidden>
             Selecione
           </option>
           <option value="1º Bach-Grupo A">1º Bach-Grupo A</option>
