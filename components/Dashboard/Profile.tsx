@@ -1,8 +1,6 @@
 'use client';
 import { useSession } from "next-auth/react";
 import EditUser from "./EditUser";
-import { FaUserAlt } from "react-icons/fa"
-import { useState } from "react";
 
 
 function Profile() {

@@ -8,14 +8,14 @@ function EditUser() {
     name: "",
     email: ""
   });
-  const { data: session } = useSession();
   const [error, setError] = useState("");
+
+  const { data: session } = useSession();
 
   const handleShowModal = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setShowAdd(true);
   };
-
   const updateUser = async (e: React.MouseEvent<HTMLButtonElement>)=>{
     e.preventDefault();
     if(newData.name != "" || newData.email != ""){
@@ -41,7 +41,7 @@ function EditUser() {
     } else{
         setError('Rellene los campos antes de actualizar sus datos.')
     }
-  }
+  };
 
   return (
     <>
