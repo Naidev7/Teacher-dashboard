@@ -35,18 +35,13 @@
       gap: 60px;
       width: 200px;
     }
-    .addBtn{
-      margin-left: 40px;
-    }
   }
 
   .tabla-mobile{
     display: none;
     width: 100%;
   }
-  .menu{
-    display: none;
-  }
+ 
 
   @media (max-width:768px){
     .tabla-mobile{
@@ -54,9 +49,6 @@
     }
     .tabla-desktop{
       display: none;
-    }
-    .menu{
-      display: block;
     }
     
   }
