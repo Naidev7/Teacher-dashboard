@@ -2,7 +2,7 @@ import EditSubject from "@/components/Dashboard/EditSubject";
 
 const getSpecificSubject = async (id: string): Promise<any> => {
   try {
-    const res = await fetch(`api/subjects/${id}`, {
+    const res = await fetch(`http://localhost:3000/api/subjects/${id}`, {
       cache: "no-store",
     });
 

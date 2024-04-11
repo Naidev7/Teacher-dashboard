@@ -51,7 +51,7 @@ function Add() {
   };
 
   return (
-    <section className="flex flex-col justify-center p-12">
+    <section className="flex flex-col justify-center p-12 bg-white/90">
       <div className="flex m-auto justify-around w-[90%]">
         <h1 className="font-medium text-base leading-6 text-gray-900 ">
           Añadir asignatura
