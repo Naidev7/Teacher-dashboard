@@ -11,7 +11,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon, ExclamationTriangleIcon } from "@heroicons/react/20/solid";
-import { EventSourceInput } from '@fullcalendar/core/index.js';
+import { EventSourceInput } from "@fullcalendar/core/index.js";
 
 interface Event {
   title: string;
@@ -22,11 +22,10 @@ interface Event {
 
 function CalendarComp() {
   const [events, setEvents] = useState([
-    { title: "event 1", id: "1" },
-    { title: "event 2", id: "2" },
-    { title: "event 3", id: "3" },
-    { title: "event 4", id: "4" },
-    { title: "event 5", id: "5" },
+    { title: "Corregir examenes", id: "1" },
+    { title: "Asignar deberes", id: "2" },
+    { title: "Reunión de padres", id: "3" },
+    { title: "Reunión de profesores", id: "4" },
   ]);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [showModal, setShowModal] = useState(false);
@@ -124,49 +123,52 @@ function CalendarComp() {
   }
 
   return (
-    <div className="flex">
-      <span className="h-screen bg-white mx-w-[30%]">
-        <Menu />
-      </span>
-      <div className="w-[90%]">
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-          <div className="grid grid-cols-10">
-            <div className="col-span-8">
-              <FullCalendar
-                plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
-                headerToolbar={{
-                  left: "prev next today",
-                  center: "title",
-                  right: "resourceTimelineWook, dayGridMonth,timeGridWeek",
-                }}
-                events={allEvents as EventSourceInput}
-                nowIndicator={true}
-                editable={true}
-                droppable={true}
-                selectable={true}
-                selectMirror={true}
-                dateClick={{ handleDateClick }}
-                drop={(data) => addEvent(data)}
-                eventClick={(data) => handleDeleteModal(data)}
-              />
+    <>
+      <div className="flex">
+        <span className="max-w-[30%] bg-white">
+          <Menu />
+        </span>
+        <div className="w-[90%]">
+          <main className="flex min-h-screen flex-col items-center justify-between p-24">
+            <div className="grid grid-cols-10">
+              <div className="col-span-8">
+                <FullCalendar
+                  plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
+                  headerToolbar={{
+                    left: "prev,next today",
+                    center: "title",
+                    right: "resourceTimelineWook, dayGridMonth,timeGridWeek",
+                  }}
+                  events={allEvents as EventSourceInput}
+                  nowIndicator={true}
+                  editable={true}
+                  droppable={true}
+                  selectable={true}
+                  selectMirror={true}
+                  dateClick={handleDateClick}
+                  drop={(data) => addEvent(data)}
+                  eventClick={(data) => handleDeleteModal(data)}
+                />
+              </div>
+              <div
+                id="draggable-el"
+                className="ml-8 w-full border-2 p-2 rounded-md mt-16 lg:h-[60%] bg-violet-50"
+              >
+                <h1 className="font-bold text-lg text-center">
+                  Arrastrar tareas
+                </h1>
+                {events.map((event) => (
+                  <div
+                    className="fc-event cursor-pointer border-2 p-1 m-2 w-full rounded-md ml-auto text-center bg-white"
+                    title={event.title}
+                    key={event.id}
+                  >
+                    {event.title}
+                  </div>
+                ))}
+              </div>
             </div>
-            <div
-              id="draggable-el"
-              className="ml-8 w-full border-2 p-2 rounded-md mt-16 lg:h-1/2 bg-violet-50"
-            >
-              <h1 className="font-bold text-lg text-center">Drag Event</h1>
-              {events.map((event) => (
-                <div
-                  className="fc-event border-2 p-1 m-2 w-full rounded-md ml-auto text-center bg-white"
-                  title={event.title}
-                  key={event.id}
-                >
-                  {event.title}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div>
+
             <Transition.Root show={showDeleteModal} as={Fragment}>
               <Dialog
                 as="div"
@@ -198,13 +200,13 @@ function CalendarComp() {
                     >
                       <Dialog.Panel
                         className="relative transform overflow-hidden rounded-lg
-                   bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
+               bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
                       >
                         <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                           <div className="sm:flex sm:items-start">
                             <div
                               className="mx-auto flex h-12 w-12 flex-shrink-0 items-center 
-                      justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10"
+                  justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10"
                             >
                               <ExclamationTriangleIcon
                                 className="h-6 w-6 text-red-600"
@@ -216,11 +218,12 @@ function CalendarComp() {
                                 as="h3"
                                 className="text-base font-semibold leading-6 text-gray-900"
                               >
-                                Eliminar evento
+                                Eliminar evento o tarea
                               </Dialog.Title>
                               <div className="mt-2">
                                 <p className="text-sm text-gray-500">
-                                  ¿Seguro que quieres eliminar este evento?
+                                  ¿Seguro que quieres eliminar este evento o
+                                  tarea?
                                 </p>
                               </div>
                             </div>
@@ -230,7 +233,7 @@ function CalendarComp() {
                           <button
                             type="button"
                             className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm 
-                      font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+                  font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
                             onClick={handleDelete}
                           >
                             Eliminar
@@ -238,7 +241,7 @@ function CalendarComp() {
                           <button
                             type="button"
                             className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 
-                      shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                  shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                             onClick={handleCloseModal}
                           >
                             Cancelar
@@ -250,90 +253,90 @@ function CalendarComp() {
                 </div>
               </Dialog>
             </Transition.Root>
-          </div>
-          <Transition.Root show={showModal} as={Fragment}>
-            <Dialog as="div" className="relative z-10" onClose={setShowModal}>
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0"
-                enterTo="opacity-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
-              >
-                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-              </Transition.Child>
+            <Transition.Root show={showModal} as={Fragment}>
+              <Dialog as="div" className="relative z-10" onClose={setShowModal}>
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0"
+                  enterTo="opacity-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                </Transition.Child>
 
-              <div className="fixed inset-0 z-10 overflow-y-auto">
-                <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                  <Transition.Child
-                    as={Fragment}
-                    enter="ease-out duration-300"
-                    enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                    enterTo="opacity-100 translate-y-0 sm:scale-100"
-                    leave="ease-in duration-200"
-                    leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                    leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                  >
-                    <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                      <div>
-                        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                          <CheckIcon
-                            className="h-6 w-6 text-green-600"
-                            aria-hidden="true"
-                          />
+                <div className="fixed inset-0 z-10 overflow-y-auto">
+                  <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                    <Transition.Child
+                      as={Fragment}
+                      enter="ease-out duration-300"
+                      enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                      enterTo="opacity-100 translate-y-0 sm:scale-100"
+                      leave="ease-in duration-200"
+                      leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                      leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                    >
+                      <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                        <div>
+                          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+                            <CheckIcon
+                              className="h-6 w-6 text-green-600"
+                              aria-hidden="true"
+                            />
+                          </div>
+                          <div className="mt-3 text-center sm:mt-5">
+                            <Dialog.Title
+                              as="h3"
+                              className="text-base font-semibold leading-6 text-gray-900"
+                            >
+                              Añadir evento o tarea
+                            </Dialog.Title>
+                            <form action="submit" onSubmit={handleSubmit}>
+                              <div className="mt-2">
+                                <input
+                                  type="text"
+                                  name="title"
+                                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 
+                        shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 
+                        focus:ring-2 
+                        focus:ring-inset focus:ring-violet-600 
+                        sm:text-sm sm:leading-6"
+                                  value={newEvent.title}
+                                  onChange={(e) => handleChange(e)}
+                                  placeholder="Título"
+                                />
+                              </div>
+                              <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
+                                <button
+                                  type="submit"
+                                  className="inline-flex w-full justify-center rounded-md bg-violet-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 sm:col-start-2 disabled:opacity-25"
+                                  disabled={newEvent.title === ""}
+                                >
+                                  Crear
+                                </button>
+                                <button
+                                  type="button"
+                                  className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0"
+                                  onClick={handleCloseModal}
+                                >
+                                  Cancelar
+                                </button>
+                              </div>
+                            </form>
+                          </div>
                         </div>
-                        <div className="mt-3 text-center sm:mt-5">
-                          <Dialog.Title
-                            as="h3"
-                            className="text-base font-semibold leading-6 text-gray-900"
-                          >
-                            Añadir evento
-                          </Dialog.Title>
-                          <form action="submit" onSubmit={handleSubmit}>
-                            <div className="mt-2">
-                              <input
-                                type="text"
-                                name="title"
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 
-                            shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 
-                            focus:ring-2 
-                            focus:ring-inset focus:ring-violet-600 
-                            sm:text-sm sm:leading-6"
-                                value={newEvent.title}
-                                onChange={(e) => handleChange(e)}
-                                placeholder="Title"
-                              />
-                            </div>
-                            <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-                              <button
-                                type="submit"
-                                className="inline-flex w-full justify-center rounded-md bg-violet-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 sm:col-start-2 disabled:opacity-25"
-                                disabled={newEvent.title === ""}
-                              >
-                                Crear
-                              </button>
-                              <button
-                                type="button"
-                                className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0"
-                                onClick={handleCloseModal}
-                              >
-                                Cancelar
-                              </button>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </Dialog.Panel>
-                  </Transition.Child>
+                      </Dialog.Panel>
+                    </Transition.Child>
+                  </div>
                 </div>
-              </div>
-            </Dialog>
-          </Transition.Root>
-        </main>
+              </Dialog>
+            </Transition.Root>
+          </main>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
