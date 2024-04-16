@@ -16,7 +16,7 @@ import { useState } from "react";
 
 const sectionsData = [
   { icon: <AiOutlineHome />, href: "/dashboard", text: "Inicio" },
-  { icon: <GrSchedules />, href: "/inProgress", text: "Horarios" },
+  { icon: <GrSchedules />, href: "/calendar", text: "Horarios" },
   {
     icon: <LiaChalkboardTeacherSolid />,
     href: "/inProgress",
