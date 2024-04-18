@@ -4,10 +4,9 @@ import React, { useState } from "react";
 
 function EditUser() {
   const [showAdd, setShowAdd] = useState(false);
-  const [newData, setNewData] = useState({
-    name: "",
-    email: ""
-  });
+  const [ newName, setNewName ] = useState("");
+  const [ newEmail, setNewEmail ] = useState("");
+
   const [error, setError] = useState("");
 
   const { data: session } = useSession();
@@ -18,23 +17,28 @@ function EditUser() {
   };
   const updateUser = async (e: React.MouseEvent<HTMLButtonElement>)=>{
     e.preventDefault();
-    if(newData.name != "" || newData.email != ""){
+    if(newName != "" || newEmail != ""){
         try {
-          const res = await fetch(`https://localhost:3000/api/updateUser/${session?.user?.email}`,{
+          const res = await fetch(`http://localhost:3000/api/updateUser?session=${session?.user?.email}`,{
             method: 'PUT',
             headers: {
               "Content-type": "application/json",
             },
             body: JSON.stringify({
-              name: newData.name,
-              email: newData.email
+              name: newName,
+              email: newEmail
             }),
           });
+
+          if(res.ok){
+          setShowAdd(false)
+            console.log("lo conseguimos")
+          }
+
 
           if (!res.ok) {
             throw new Error("Failed to update subject.");
           }
-          setNewData(false)
         } catch (error) {
             console.log( error)
         }
@@ -42,6 +46,7 @@ function EditUser() {
         setError('Rellene los campos antes de actualizar sus datos.')
     }
   };
+
 
   return (
     <>
@@ -66,13 +71,15 @@ function EditUser() {
           </h1>
           <form className="flex flex-col gap-y-12 gap-x-5">
             <input
-              onChange={(e) => setNewData(e.target.value)}
+            id="name"
+              onChange={(e) => setNewName(e.target.value)}
               type="text"
               placeholder={session?.user?.name}
               className="border-2 text-normal rounded-lg p-2 text-gray-600 text-center  "
             />
             <input
-              onChange={(e) => setNewData(e.target.value)}
+              id="email"
+              onChange={(e) => setNewEmail( e.target.value)}
               type="text"
               placeholder={session?.user?.email}
               className="border-2 text-normal rounded-lg p-2 text-gray-600 text-center  "
