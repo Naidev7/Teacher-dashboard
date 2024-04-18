@@ -34,11 +34,11 @@ function Sections() {
   const [hamburgMenu, setHamburgMenu] = useState(true);
 
   return (
-    <section className="absolute z-50 w-full md:relative lg:relative mt-6 flex flex-col gap-y-6 items-start p-4 cursor-pointer">
-      <span className="md:hidden lg:hidden" onClick={() => setHamburgMenu(!hamburgMenu)}>
+    <section className="absolute z-50 w-full md:relative lg:relative  bg-white/95 mt-6 flex flex-col gap-y-6 items-start p-4 cursor-pointer">
+      <span className=" lg:hidden" onClick={() => setHamburgMenu(!hamburgMenu)}>
         <CiMenuBurger />
       </span>
-      <div className={`md:block lg:block ${hamburgMenu ? 'hidden' : 'block'} space-y-5 bg-white/95 w-full`}>
+      <div className={`lg:block ${hamburgMenu ? 'hidden' : 'block '} p-3  bg-white/95 space-y-5 w-full`}>
         {sectionsData.map((section, index) => (
           <article
             key={index}

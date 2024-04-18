@@ -124,42 +124,42 @@ function CalendarComp() {
 
   return (
     <>
-      {/* <div className="flex">
-        <span className="max-w-[30%] bg-white">
+      <div className="flex flex-col justify-around lg:flex-row">
+        <span className="lg:max-w-[30%] h-full bg-gray-50">
           <Menu />
         </span>
-        <div className="w-[90%]">
-          <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <div className="grid grid-cols-10">
-              <div className="col-span-8">
-                <FullCalendar
-                  plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
-                  headerToolbar={{
-                    left: "prev,next today",
-                    center: "title",
-                    right: "resourceTimelineWook, dayGridMonth,timeGridWeek",
-                  }}
-                  events={allEvents as EventSourceInput}
-                  nowIndicator={true}
-                  editable={true}
-                  droppable={true}
-                  selectable={true}
-                  selectMirror={true}
-                  dateClick={handleDateClick}
-                  drop={(data) => addEvent(data)}
-                  eventClick={(data) => handleDeleteModal(data)}
-                />
-              </div>
+        <div className="w-full mt-12 md:m-0 lg:m-0 ">
+          <main className="flex flex-col lg:flex-row items-center justify-between p-4 lg:p-24">
+            <div className="lg:w-8/12">
+              <FullCalendar
+                plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
+                headerToolbar={{
+                  left: "prev,next today",
+                  center: "title",
+                  right: "resourceTimelineWook, dayGridMonth,timeGridWeek",
+                }}
+                events={allEvents as EventSourceInput}
+                nowIndicator={true}
+                editable={true}
+                droppable={true}
+                selectable={true}
+                selectMirror={true}
+                dateClick={handleDateClick}
+                drop={(data) => addEvent(data)}
+                eventClick={(data) => handleDeleteModal(data)}
+              />
+            </div>
+            <div className="lg:w-4/12 mt-4 lg:mt-0">
               <div
                 id="draggable-el"
-                className="ml-8 w-full border-2 p-2 rounded-md mt-16 lg:h-[60%] bg-violet-50"
+                className="border-2 p-2 rounded-md lg:ml-8 lg:h-[60%] bg-violet-50"
               >
                 <h1 className="font-bold text-lg text-center">
                   Arrastrar tareas
                 </h1>
                 {events.map((event) => (
                   <div
-                    className="fc-event cursor-pointer border-2 p-1 m-2 w-full rounded-md ml-auto text-center bg-white"
+                    className="fc-event cursor-pointer border-2 p-1 m-2 rounded-md ml-auto text-center bg-white"
                     title={event.title}
                     key={event.id}
                   >
@@ -168,7 +168,6 @@ function CalendarComp() {
                 ))}
               </div>
             </div>
-
             <Transition.Root show={showDeleteModal} as={Fragment}>
               <Dialog
                 as="div"
@@ -333,54 +332,6 @@ function CalendarComp() {
                 </div>
               </Dialog>
             </Transition.Root>
-          </main>
-        </div>
-      </div> */}
-
-      <div className="flex flex-col justify-around lg:flex-row h-screen">
-        <span className="lg:max-w-[30%] bg-white">
-          <Menu />
-        </span>
-        <div className="w-full ">
-          <main className="flex flex-col lg:flex-row items-center justify-between p-4 lg:p-24">
-            <div className="lg:w-8/12">
-              <FullCalendar
-                plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
-                headerToolbar={{
-                  left: "prev,next today",
-                  center: "title",
-                  right: "resourceTimelineWook, dayGridMonth,timeGridWeek",
-                }}
-                events={allEvents as EventSourceInput}
-                nowIndicator={true}
-                editable={true}
-                droppable={true}
-                selectable={true}
-                selectMirror={true}
-                dateClick={handleDateClick}
-                drop={(data) => addEvent(data)}
-                eventClick={(data) => handleDeleteModal(data)}
-              />
-            </div>
-            <div className="lg:w-4/12 mt-4 lg:mt-0">
-              <div
-                id="draggable-el"
-                className="border-2 p-2 rounded-md lg:ml-8 lg:h-[60%] bg-violet-50"
-              >
-                <h1 className="font-bold text-lg text-center">
-                  Arrastrar tareas
-                </h1>
-                {events.map((event) => (
-                  <div
-                    className="fc-event cursor-pointer border-2 p-1 m-2 rounded-md ml-auto text-center bg-white"
-                    title={event.title}
-                    key={event.id}
-                  >
-                    {event.title}
-                  </div>
-                ))}
-              </div>
-            </div>
           </main>
         </div>
       </div>
