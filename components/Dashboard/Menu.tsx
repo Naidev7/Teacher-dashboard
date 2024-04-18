@@ -31,10 +31,10 @@ const sectionsData = [
 
 function Sections() {
   const pathname = usePathname();
-  const [hamburgMenu, setHamburgMenu] = useState(false);
+  const [hamburgMenu, setHamburgMenu] = useState(true);
 
   return (
-    <section className="absolute w-full md:relative lg:relative mt-6 flex flex-col gap-y-6 items-start p-4 cursor-pointer">
+    <section className="absolute z-50 w-full md:relative lg:relative mt-6 flex flex-col gap-y-6 items-start p-4 cursor-pointer">
       <span className="md:hidden lg:hidden" onClick={() => setHamburgMenu(!hamburgMenu)}>
         <CiMenuBurger />
       </span>
