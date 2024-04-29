@@ -1,5 +1,5 @@
 # Dashboard de Profesores - Proyecto Full Stack
-Este proyecto es un dashboard de profesores desarrollado como una aplicación full stack, lo que significa que abarca tanto el desarrollo del frontend como del backend. Utiliza un conjunto de tecnologías modernas para ofrecer una experiencia óptima para los usuarios y facilitar el desarrollo y mantenimiento del proyecto.
+Este proyecto es un dashboard de profesores desarrollado como una aplicación full stack, lo que significa que abarca tanto el desarrollo del frontend como del backend. Utiliza un conjunto de tecnologías modernas para ofrecer una experiencia óptima para los usuarios y facilitar el desarrollo y mantenimiento del proyecto..
 
 ![Captura de pantalla 2024-04-11 131656](https://github.com/Naidev7/Teacher-dashboard/assets/150022253/f4c05d81-1f1c-491b-869b-b9bfe578df7c)
 
