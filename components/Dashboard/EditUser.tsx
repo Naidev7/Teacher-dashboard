@@ -60,13 +60,7 @@ function EditUser() {
       </div>
       {showAdd && (
         <div className="fixed inset-0 flex flex-col gap-y-16 justify-center items-center bg-white bg-opacity-95 z-50">
-          <button
-            onClick={(e) => setShowAdd(false)}
-            className="text-gray-600 ml-[70%] font-medium cursor-pointer lg:text-2xl sm:text-sm hover:text-indigo-900"
-          >
-            X
-          </button>
-          <h1 className="font-semibold text-indigo-700 text-center capitalize lg:text-4xl sm:text-sm leading-6  ">
+          <h1 className="font-semibold lg:text-5xl sm:text-4xl text-3xl text-indigo-700 text-center capitalize leading-6">
             Editar usuario
           </h1>
           <form className="flex flex-col gap-y-12 gap-x-5">
@@ -75,17 +69,20 @@ function EditUser() {
               onChange={(e) => setNewName(e.target.value)}
               type="text"
               placeholder={session?.user?.name}
-              className="border-2 text-normal rounded-lg p-2 text-gray-600 text-center  "
+              className="border-2 text-normal rounded-lg p-2 text-gray-600 text-center text-sm w-[70%] m-auto sm:text-base lg:text-lg sm:w-full lg:w-full"
             />
             <input
               id="email"
               onChange={(e) => setNewEmail( e.target.value)}
               type="text"
               placeholder={session?.user?.email}
-              className="border-2 text-normal rounded-lg p-2 text-gray-600 text-center  "
+              className="border-2 text-normal rounded-lg p-2 text-gray-600 text-center text-sm w-[70%] m-auto sm:text-base lg:text-lg sm:w-full lg:w-full"
             />
-            <button onClick={updateUser} className="px-4 m-auto w-[80%] py-2 capitalize  bg-indigo-700 text-white rounded-md hover:bg-gray-600">
+            <button onClick={updateUser} className="px-4 m-auto w-[60%] sm:w-[70%] lg:w-[80%] py-2 capitalize  bg-indigo-700 text-white rounded-md hover:bg-gray-600">
               Editar
+            </button>
+            <button  onClick={(e) => setShowAdd(false)} className="bg-red-600 text-s m-auto w-[50%] text-white rounded-md hover:bg-gray-600 px-4 py-2">
+              Cancelar
             </button>
             <p className="text-center text-red-600">{error}</p>
           </form>
