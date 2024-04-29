@@ -17,5 +17,6 @@ export async function PUT(request: NextRequest) {
     { email: session },
     { name, email }
   );
-  return NextResponse.json({newUserData});
+  console.log('newUser: ', newUserData)
+  return NextResponse.json({newUserData}, {status: 200});
 }
