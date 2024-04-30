@@ -125,9 +125,9 @@ function CalendarComp() {
   return (
     <>
       <div className="flex flex-col justify-around lg:flex-row">
-        <span className="lg:max-w-[30%] h-full bg-gray-50">
+        <div className="lg:max-w-[30%] bg-white">
           <Menu />
-        </span>
+        </div>
         <div className="relative w-full mt-12 md:m-0 lg:m-0 ">
           <main className="flex flex-col lg:flex-row items-center justify-between p-4 lg:p-24">
             <div className="lg:w-8/12">

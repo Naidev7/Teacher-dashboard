@@ -2,6 +2,7 @@ import Link from "next/link";
 import Delete from "./Delete";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import '@/app/subjectsList.css';
 
 export const getSubjects = async (userEmail) => {
   try {
@@ -32,7 +33,7 @@ export default async function SubjectsList() {
 
   return (
     <>
-      <div className="w-[90%] mb-8  tabla-desktop">
+      <div className="w-[90%] mb-8 hidden sm:block lg:block">
         <div className="min-w-full">
           <table className=" mt-6 ml-6 lg:w-full sm:w-auto sm:min-w-full m-auto shadow-lg divide-y divide-gray-200">
             <thead className="bg-sky-950">
@@ -79,7 +80,7 @@ export default async function SubjectsList() {
         </div>
       </div>
 
-      <div className="flex flex-col tabla-mobile">
+      <div className="flex flex-col sm:hidden lg:hidden">
         <div className="shadow overflow-hidden sm:rounded-lg">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             <div className="p-4 border border-gray-200 rounded">

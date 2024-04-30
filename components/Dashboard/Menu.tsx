@@ -35,7 +35,7 @@ function Sections() {
   const [hamburgMenu, setHamburgMenu] = useState(true);
 
   return (
-    <section className="absolute z-50 w-full md:relative lg:relative  mt-6 flex flex-col gap-y-6 items-start p-4 cursor-pointer">
+    <section className="bg-white absolute z-50 w-full md:relative lg:relative  mt-6 flex flex-col gap-y-6 items-start p-4 cursor-pointer">
       <span className=" lg:hidden" onClick={() => setHamburgMenu(!hamburgMenu)}>
         {
           !hamburgMenu ? <IoMdClose />:  <CiMenuBurger />  
@@ -45,7 +45,7 @@ function Sections() {
         {sectionsData.map((section, index) => (
           <article
             key={index}
-            className={`flex gap-x-5 hover:scale-90 ${
+            className={`flex gap-x-5 ${
               pathname === section.href ? "bg-sky-950 text-white rounded-lg p-2" : ""
             }`}
           >

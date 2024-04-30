@@ -8,7 +8,7 @@ export default function Main() {
 
   return (
     <main className="md:flex lg:flex">
-      <section>
+      <section className="bg-white">
       <Menu />
       </section>
       <section className="flex flex-col w-full p-6 h-screen bg-gray-50 ">
