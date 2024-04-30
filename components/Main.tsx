@@ -8,10 +8,10 @@ export default function Main() {
 
   return (
     <main className="md:flex lg:flex">
-      <section className="">
+      <section>
       <Menu />
       </section>
-      <section className=" flex flex-col  w-full p-6 h-full  bg-gray-50 ">
+      <section className="flex flex-col w-full p-6 h-screen bg-gray-50 ">
       <Dashboard />
       <SubjectsList/>
       </section>

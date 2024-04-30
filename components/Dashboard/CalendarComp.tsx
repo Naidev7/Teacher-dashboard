@@ -128,7 +128,7 @@ function CalendarComp() {
         <span className="lg:max-w-[30%] h-full bg-gray-50">
           <Menu />
         </span>
-        <div className="w-full mt-12 md:m-0 lg:m-0 ">
+        <div className="relative w-full mt-12 md:m-0 lg:m-0 ">
           <main className="flex flex-col lg:flex-row items-center justify-between p-4 lg:p-24">
             <div className="lg:w-8/12">
               <FullCalendar
