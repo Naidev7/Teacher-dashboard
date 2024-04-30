@@ -2,7 +2,8 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import AnualHours from "./AnualHours";
 
-export const getHours = async (userEmail) => {
+
+export const getHours = async (userEmail: string) => {
   try {
     const res = await fetch(
       `https://teacher-dashboard-gamma.vercel.app/api/subjects?session=${userEmail}`,
@@ -22,12 +23,15 @@ export const getHours = async (userEmail) => {
   }
 };
 
-export const getComplH = async (userEmail) => {
+export const getComplH = async (userEmail: string) => {
   try {
-    const res = await fetch(`https://teacher-dashboard-gamma.vercel.app/api/hours?session=${userEmail}`, {
-      method: 'GET',
-      cache: "no-store",
-    });
+    const res = await fetch(
+      `https://teacher-dashboard-gamma.vercel.app/api/hours?session=${userEmail}`,
+      {
+        method: "GET",
+        cache: "no-store",
+      }
+    );
 
     if (!res.ok) {
       throw new Error("Failed to fetch subjects");
@@ -35,7 +39,7 @@ export const getComplH = async (userEmail) => {
 
     return res.json();
   } catch (error) {
-    console.log( error);
+    console.log(error);
   }
 };
 
@@ -43,6 +47,7 @@ async function Hours() {
   const session = await getServerSession(authOptions);
   const { user } = session;
   const userEmail = user.email;
+
 
   const { data } = await getHours(userEmail);
   const ordinaryHours = data.reduce(
@@ -52,10 +57,11 @@ async function Hours() {
 
   const { complement } = await getComplH(userEmail);
   const totalExtra = complement.reduce(
-    (total: number, complement: any) => total + complement.hours, 0
+    (total: number, complement: any) => total + complement.hours,
+    0
   );
 
-const totalHours = ordinaryHours + totalExtra;
+  const totalHours : number = ordinaryHours + totalExtra;
 
   return (
     <section className="flex flex-col items-center gap-y-12 border-b-2">

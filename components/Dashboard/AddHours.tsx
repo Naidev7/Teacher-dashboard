@@ -3,7 +3,13 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-function AddHours({ setDinamycBorder, dinamycBorder }) {
+
+interface AddHoursProps {
+  setDinamycBorder: (value: boolean) => void;
+  dinamycBorder: boolean;
+}
+
+function AddHours({ setDinamycBorder, dinamycBorder }: AddHoursProps) {
   const [showAdd, setShowAdd] = useState(false);
   const [hours, setHours] = useState(0);
   const { data: session } = useSession();

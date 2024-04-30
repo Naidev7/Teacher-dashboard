@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import '@/app/subjectsList.css';
 
-export const getSubjects = async (userEmail) => {
+export const getSubjects = async (userEmail: string) => {
   try {
     const res = await fetch(
       `https://teacher-dashboard-gamma.vercel.app/api/subjects?session=${userEmail}`,
