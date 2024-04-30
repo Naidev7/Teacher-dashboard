@@ -33,7 +33,6 @@ const sectionsData = [
 function Sections() {
   const pathname = usePathname();
   const [hamburgMenu, setHamburgMenu] = useState(true);
-  const [ closeHamburg, setCloseHamb ] = useState(false)
 
   return (
     <section className="absolute z-50 w-full md:relative lg:relative  mt-6 flex flex-col gap-y-6 items-start p-4 cursor-pointer">
@@ -46,7 +45,7 @@ function Sections() {
         {sectionsData.map((section, index) => (
           <article
             key={index}
-            className={`flex gap-x-5 hover:scale-90 ${
+            className={`flex gap-x-5 ${
               pathname === section.href ? "bg-sky-950 text-white rounded-lg p-2" : ""
             }`}
           >
@@ -56,6 +55,8 @@ function Sections() {
             </Link>
           </article>
         ))}
+
+        
         <article onClick={() => signOut()} className="flex gap-x-5 hover:scale-90">
           <div className="text-xl">
             <CiLogout />

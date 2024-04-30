@@ -5,7 +5,7 @@ import Image from "next/image";
 function page() {
   return (
    <div className="flex  gap-x-9">
-    <span className="mx-w-[30%]">
+    <span className="mx-w-[30%] bg-white">
     <Menu/>
     </span>
     <div className="flex flex-col w-full items-center mt-9 h-screen gap-y-12">

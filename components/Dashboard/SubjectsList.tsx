@@ -2,8 +2,9 @@ import Link from "next/link";
 import Delete from "./Delete";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import '@/app/subjectsList.css';
 
-export const getSubjects = async (userEmail) => {
+export const getSubjects = async (userEmail: string) => {
   try {
     const res = await fetch(
       `https://teacher-dashboard-gamma.vercel.app/api/subjects?session=${userEmail}`,
@@ -32,7 +33,7 @@ export default async function SubjectsList() {
 
   return (
     <>
-      <div className="w-[90%] mb-8  tabla-desktop">
+      <div className="w-[90%] mb-8 hidden sm:block lg:block">
         <div className="min-w-full">
           <table className=" mt-6 ml-6 lg:w-full sm:w-auto sm:min-w-full m-auto shadow-lg divide-y divide-gray-200">
             <thead className="bg-sky-950">
@@ -55,11 +56,11 @@ export default async function SubjectsList() {
                   <td className="custom-td">{s.group}</td>
                   <td className="custom-td">{`${s.hours} h`}</td>
                   <td className="custom-td">{s.spaces}</td>
-                  <td className="flex p-3 gap-x-4">
+                  <td className="flex items-center p-3 gap-x-4">
                     <Link
                       href={`/${s._id}`}
                       id="detail"
-                      className="text-indigo-700 text-sm leading-5 font-medium"
+                      className="text-indigo-700 text-center text-sm leading-5 font-medium"
                     >
                       Ver
                     </Link>
@@ -79,7 +80,7 @@ export default async function SubjectsList() {
         </div>
       </div>
 
-      <div className="flex flex-col tabla-mobile">
+      <div className="flex flex-col sm:hidden lg:hidden">
         <div className="shadow overflow-hidden sm:rounded-lg">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             <div className="p-4 border border-gray-200 rounded">

@@ -86,7 +86,7 @@ export default function RegisterForm() {
             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
             className="block w-full rounded-lg shadow-base p-4 border-2 border-gray-100   focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 font-normal text-sm leading-4 text-gray-600 cursor-pointer"
           />
-           <p className="text-slate-500 text-xs text-center">La contraseña debe tener al menos 8 caracteres, con números y letras y mayúsculas incluidas</p>
+           <p className="text-slate-500 text-xs text-center">La contraseña debe tener al menos 8 caracteres, con números, letras y mayúsculas incluidas</p>
           <button className="bg-indigo-700 text-white p-4 m-auto rounded-lg w-[50%] font-medium text-sm leading-5 cursor-pointer">
             Registro
           </button>

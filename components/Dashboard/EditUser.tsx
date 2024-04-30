@@ -68,14 +68,14 @@ function EditUser() {
             id="name"
               onChange={(e) => setNewName(e.target.value)}
               type="text"
-              placeholder={session?.user?.name}
+              placeholder={session?.user?.name ? session.user.name : "" }
               className="border-2 text-normal rounded-lg p-2 text-gray-600 text-center text-sm w-[70%] m-auto sm:text-base lg:text-lg sm:w-full lg:w-full"
             />
             <input
               id="email"
               onChange={(e) => setNewEmail( e.target.value)}
               type="text"
-              placeholder={session?.user?.email}
+              placeholder={session?.user?.email ? session.user.email : ""}
               className="border-2 text-normal rounded-lg p-2 text-gray-600 text-center text-sm w-[70%] m-auto sm:text-base lg:text-lg sm:w-full lg:w-full"
             />
             <button onClick={updateUser} className="px-4 m-auto w-[60%] sm:w-[70%] lg:w-[80%] py-2 capitalize  bg-indigo-700 text-white rounded-md hover:bg-gray-600">

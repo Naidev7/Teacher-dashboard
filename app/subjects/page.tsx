@@ -4,7 +4,7 @@ import SubjectsList from "@/components/Dashboard/SubjectsList";
 function page() {
   return (
     <div className="flex">
-      <div >
+      <div className="bg-white" >
         <Menu />
       </div>
       <div className="flex w-full flex-col text-center p-6 bg-gray-50 h-screen ">

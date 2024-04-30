@@ -16,41 +16,6 @@
   background: linear-gradient(180deg, #8699d2 0%, #D6D5FF 100%);
 }
 
-.custom-h3 {
-    @apply font-normal leading-6 md:leading-8 text-sm md:text-base lg:text-lg text-gray-500 capitalize
-  }
 
-  .custom-th{
-    @apply p-4 text-sm leading-5 font-normal text-white capitalize
-  }
-  .custom-td{
-    @apply p-3 text-sm leading-5 font-medium text-gray-600 text-center capitalize
-  }
-  .custom-hours-P{
-    @apply font-medium text-sm leading-4 text-gray-700 capitalize
-  }
-  @media (min-width:320px) {
-    .hoursArticle{
-      display: flex;
-      gap: 60px;
-      width: 200px;
-    }
-  }
-
-  .tabla-mobile{
-    display: none;
-    width: 100%;
-  }
- 
-
-  @media (max-width:768px){
-    .tabla-mobile{
-      display: block;
-    }
-    .tabla-desktop{
-      display: none;
-    }
-    
-  }
 
 
