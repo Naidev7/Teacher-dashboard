@@ -49,9 +49,9 @@ function Sections() {
               pathname === section.href ? "bg-sky-950 text-white rounded-lg p-2" : ""
             }`}
           >
+            <Link href={section.href} className="flex gap-x-5" >
             <div className="text-xl">{section.icon}</div>
-            <Link href={section.href} className="menuLinks">
-              {section.text}
+             <p className="menuLinks"> {section.text}</p>
             </Link>
           </article>
         ))}
