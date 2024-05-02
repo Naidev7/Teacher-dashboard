@@ -35,7 +35,7 @@ function Sections() {
   const [hamburgMenu, setHamburgMenu] = useState(true);
 
   return (
-    <section className="bg-white absolute z-50 w-full md:relative lg:relative  mt-6 flex flex-col gap-y-6 items-start p-4 cursor-pointer">
+    <section className="absolute z-50 w-full md:relative lg:relative  mt-6 flex flex-col gap-y-6 items-start p-4 cursor-pointer">
       <span className=" lg:hidden" onClick={() => setHamburgMenu(!hamburgMenu)}>
         {
           !hamburgMenu ? <IoMdClose />:  <CiMenuBurger />  
@@ -49,9 +49,9 @@ function Sections() {
               pathname === section.href ? "bg-sky-950 text-white rounded-lg p-2" : ""
             }`}
           >
+            <Link href={section.href} className="flex gap-x-5" >
             <div className="text-xl">{section.icon}</div>
-            <Link href={section.href} className="menuLinks">
-              {section.text}
+             <p className="menuLinks"> {section.text}</p>
             </Link>
           </article>
         ))}

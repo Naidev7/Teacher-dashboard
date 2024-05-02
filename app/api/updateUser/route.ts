@@ -1,22 +1,27 @@
 import User from "@/models/User";
 import { connectDB } from "@/libs/connectionDB";
 import { NextRequest, NextResponse } from "next/server";
+import { error } from "console";
 
 
 export async function PUT(request: NextRequest) {
   const session = request.nextUrl.searchParams.get("session");
-  console.log("session: ", session);
 
   const userData = await request.json();
   const { name, email } = userData;
   
-  console.log('name, email: ', name, email)
   await connectDB();
 
-  const newUserData = await User.findOneAndUpdate(
+  const updatedUserData = await User.findOneAndUpdate(
     { email: session },
-    { name, email }
+    { name, email, new: true }
   );
-  console.log('newUser: ', newUserData)
-  return NextResponse.json({newUserData}, {status: 200});
+
+  if(updatedUserData){
+  console.log('updated user: ', updatedUserData);
+  return NextResponse.json({updatedUserData}, {status:200});
+  }else{
+    console.log('error, usuario no encontrado', error)
+    return NextResponse.json({error: "Usuario no encontrado"}, {status:404});
+  }
 }

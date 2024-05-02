@@ -1,6 +1,6 @@
 'use client';
 import { useSession } from "next-auth/react";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function EditUser() {
   const [showAdd, setShowAdd] = useState(false);
@@ -19,7 +19,7 @@ function EditUser() {
     e.preventDefault();
     if(newName != "" || newEmail != ""){
         try {
-          const res = await fetch(`http://localhost:3000/api/updateUser?session=${session?.user?.email}`,{
+          const res = await fetch(`https://teacher-dashboard-gamma.vercel.app/api/updateUser?session=${session?.user?.email}`,{
             method: 'PUT',
             headers: {
               "Content-type": "application/json",
